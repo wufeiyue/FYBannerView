@@ -1,0 +1,3 @@
+swift版轮播图，使用UICollectionView实现,使用Kingfisher图片异步缓存库，可定制性比较强
+
+
