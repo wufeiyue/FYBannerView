@@ -102,10 +102,11 @@ extension ViewController:FYSliderViewDelegate{
 - - -
 其中分页控件的类型有：
 - custom 自定义有动画效果的pageControl(默认)
-- system  使用系统自带的pageControl
 **效果如图：**  
 ![custom](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner1.gif)
 
+- system  使用系统自带的pageControl
+**效果如图：** 
 ![system](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner5.gif)
 
 **使用方法：**  
@@ -114,18 +115,18 @@ extension ViewController:FYSliderViewDelegate{
 ```
 var controlType:FYPageControlType{
     return .system(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
-                  normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
-                  point:(x:.centerX,y:.bottom(10)))
+                   normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
+                   point:(x:.centerX,y:.bottom(10)))
 }
 ```
 2.你想改变动画样式的pageControl元素之间的间距或者大小，仅仅只需重写controlType属性，将返回值改为.custom并按照参数要求补齐完整即可
 ```
 var controlType:FYPageControlType{ 
     return .custom(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
-                    normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
-                    layout:[.point(x:.right(10), y:.bottom(16)),
-                            .size(borderWidth:2,circleWidth:10),
-                            .margin(12)
+                   normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
+                   layout:[.point(x:.right(10), y:.bottom(16)),
+                           .size(borderWidth:2,circleWidth:10),
+                           .margin(12)
                                 ])        
 }
 ```
@@ -141,23 +142,24 @@ x轴方向可表示为：
 - .left(20) 到sliderView试图左边距离20个单位
 - .centerX  相对于sliderView水平居中
 - .right(10)到sliderView试图右边距离10个单位
+**效果图如下：**    
+![右下角显示](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner3.gif)
 
 y轴方向可表示为：
 - .top(10)  到sliderView试图顶部距离10个单位
 - .centerY  相对于sliderView垂直居中
 - .bottom(20)到sliderView试图底部距离20个单位
-**效果图如下：**    
-![右下角显示](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner3.gif)
-
-![水平垂直居中](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner4.gif)  
+**效果图如下：**  
+![水平垂直居中](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner4.gif) 
+ 
 ####2.带文字效果的轮播图，介绍关于遮罩视图的不同选择样式
 - - -
 其中遮罩试图的类型有：
 - translucent 半透明
+**效果如图：**
+ ![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner6.gif) 
 - gradient 渐变色（默认）
-**效果如图：**  
-![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner6.gif)  
-
+**效果如图：** 
 ![渐变背景色](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner2.gif)
 
 **使用方法：**  
@@ -165,8 +167,8 @@ y轴方向可表示为：
 ```
 var maskType:FYSliderCellMaskType{
 	return .gradient(backgroundColors: [UIColor(red: 0, green: 0, blue: 0, alpha: 0),
-                                      UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)],
-                   offsetY: 100)
+                                        UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)],
+                     offsetY: 100)
 }
 ```
 2、设置成为半透明的遮罩样式
