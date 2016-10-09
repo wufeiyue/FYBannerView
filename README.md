@@ -1,8 +1,14 @@
-swift版轮播图，使用UICollectionView实现,使用Kingfisher图片异步缓存库，可定制性比较强
+使用UICollectionView实现的swift轮播图FYSliderView
+===
+
+- 带有动画效果的pageControl，可自定义pageControl元素之间的间距/大小/位置
+- 可自定义文字标题的字体大小/颜色/内边距
+- 有两种风格的文字标题遮罩背景（渐变色背景/半透明背景）
 
 ##项目结构
 - - -
-![](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/项目结构图.png)
+![](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/项目结构图.png)  
+
 目录说明
 ```
 ├── FYSliderView  ＃核心库文件夹，如果不使用 CocoaPods 集成，请直接将这个文件夹拖拽带你的项目中
@@ -97,31 +103,31 @@ extension ViewController:FYSliderViewDelegate{
 其中分页控件的类型有：
 - custom 自定义有动画效果的pageControl(默认)
 - system  使用系统自带的pageControl
-**效果如图：**
+**效果如图：**  
 ![custom](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner1.gif)
+
 ![system](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner5.gif)
 
-**使用方法：**
-
+**使用方法：**  
 
 1.在ViewController类中,只需重写controlType属性，将返回值改为.system并按照参数要求补齐完整即可切换成系统样式
 ```
 var controlType:FYPageControlType{
-        return .system(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
-                              normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
-                              point:(x:.centerX,y:.bottom(10)))
-    }
+    return .system(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
+                  normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
+                  point:(x:.centerX,y:.bottom(10)))
+}
 ```
 2.你想改变动画样式的pageControl元素之间的间距或者大小，仅仅只需重写controlType属性，将返回值改为.custom并按照参数要求补齐完整即可
 ```
 var controlType:FYPageControlType{ 
-        return .custom(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
-                        normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
-                        layout:[.point(x:.right(10), y:.bottom(16)),
-                                .size(borderWidth:2,circleWidth:10),
-                                .margin(12)
+    return .custom(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
+                    normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
+                    layout:[.point(x:.right(10), y:.bottom(16)),
+                            .size(borderWidth:2,circleWidth:10),
+                            .margin(12)
                                 ])        
-    }
+}
 ```
 3.如果我不想要pageControl了，想把它隐藏掉，那么只需要这样就可以
 ```
@@ -140,25 +146,27 @@ y轴方向可表示为：
 - .top(10)  到sliderView试图顶部距离10个单位
 - .centerY  相对于sliderView垂直居中
 - .bottom(20)到sliderView试图底部距离20个单位
-**效果图如下：**
+**效果图如下：**    
 ![右下角显示](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner3.gif)
-![水平垂直居中](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner4.gif)
+
+![水平垂直居中](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner4.gif)  
 ####2.带文字效果的轮播图，介绍关于遮罩视图的不同选择样式
 - - -
 其中遮罩试图的类型有：
 - translucent 半透明
 - gradient 渐变色（默认）
-**效果如图：**
-![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner6.gif)
+**效果如图：**  
+![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner6.gif)  
+
 ![渐变背景色](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner2.gif)
 
-**使用方法：**
+**使用方法：**  
 1、设置成为渐变色的遮罩样式
 ```
 var maskType:FYSliderCellMaskType{
 	return .gradient(backgroundColors: [UIColor(red: 0, green: 0, blue: 0, alpha: 0),
-                                            UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)],
-                         offsetY: 100)
+                                      UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)],
+                   offsetY: 100)
 }
 ```
 2、设置成为半透明的遮罩样式
@@ -183,6 +191,6 @@ var titleStyle:FYTitleStyle{
 }
 ```
 ##结语
-将FYSliderView导入到工程项目中以后，开发者需将轮播图的占位图添加到项目图片目录下，可将占位图的图片资源名称命名为`fy_placeholderImage`或重写var placeholderImage:UIImage属性。如果开发者导入占位图资源图片到项目中，轮播图的占位图会替换成一张绘制而成的灰色背景图
+将FYSliderView导入到工程项目中以后，开发者需将轮播图的占位图添加到项目图片目录下，可将占位图的图片资源名称命名为`fy_placeholderImage`或重写`var placeholderImage:UIImage`属性。如果开发者导入占位图资源图片到项目中，轮播图的占位图会替换成一张绘制而成的灰色背景图
 
 > 有任何疑问请到[个人博客](www.wufeiyue.com)留言
