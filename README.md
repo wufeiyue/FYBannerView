@@ -102,12 +102,9 @@ extension ViewController:FYSliderViewDelegate{
 - - -
 其中分页控件的类型有：
 - custom 自定义有动画效果的pageControl(默认)
-**效果如图：**  
-![custom](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner1.gif)
-
-- system  使用系统自带的pageControl
-**效果如图：** 
-![system](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner5.gif)
+- ![custom](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner1.gif)
+- system  使用系统自带的pageControl 
+- ![system](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner5.gif)
 
 **使用方法：**  
 
@@ -142,25 +139,21 @@ x轴方向可表示为：
 - .left(20) 到sliderView试图左边距离20个单位
 - .centerX  相对于sliderView水平居中
 - .right(10)到sliderView试图右边距离10个单位
-**效果图如下：**    
-![右下角显示](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner3.gif)
+- ![右下角显示](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner3.gif)
 
 y轴方向可表示为：
 - .top(10)  到sliderView试图顶部距离10个单位
 - .centerY  相对于sliderView垂直居中
 - .bottom(20)到sliderView试图底部距离20个单位
-**效果图如下：**  
-![水平垂直居中](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner4.gif) 
+- ![水平垂直居中](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner4.gif) 
  
 ####2.带文字效果的轮播图，介绍关于遮罩视图的不同选择样式
 - - -
 其中遮罩试图的类型有：
 - translucent 半透明
-**效果如图：**
- ![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner6.gif) 
+- ![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner6.gif) 
 - gradient 渐变色（默认）
-**效果如图：** 
-![渐变背景色](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner2.gif)
+- ![渐变背景色](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner2.gif)
 
 **使用方法：**  
 1、设置成为渐变色的遮罩样式
