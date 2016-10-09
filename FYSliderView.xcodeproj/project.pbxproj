@@ -14,7 +14,10 @@
 		179223201DA1F5D000A7A512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1792231E1DA1F5D000A7A512 /* LaunchScreen.storyboard */; };
 		179223291DA1F62700A7A512 /* FYCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179223281DA1F62700A7A512 /* FYCollectionViewCell.swift */; };
 		1792232B1DA1F65400A7A512 /* FYSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1792232A1DA1F65400A7A512 /* FYSliderView.swift */; };
-		1792232E1DA2670700A7A512 /* NSTimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1792232D1DA2670700A7A512 /* NSTimerEx.swift */; };
+		17E260ED1DA88F0F00F8B294 /* FYAnimatedLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E260EC1DA88F0F00F8B294 /* FYAnimatedLayer.swift */; };
+		17F4ABAE1DA7626D002F51B1 /* FYPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4ABAD1DA7626D002F51B1 /* FYPageControl.swift */; };
+		17F4ABB01DA77C03002F51B1 /* FYSliderViewCustomizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4ABAF1DA77C03002F51B1 /* FYSliderViewCustomizable.swift */; };
+		6D7F4A831CBBD68D88614BC6 /* Pods_FYSliderView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6841795C48BA0775D44BB719 /* Pods_FYSliderView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +30,12 @@
 		179223211DA1F5D000A7A512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		179223281DA1F62700A7A512 /* FYCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYCollectionViewCell.swift; sourceTree = "<group>"; };
 		1792232A1DA1F65400A7A512 /* FYSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYSliderView.swift; sourceTree = "<group>"; };
-		1792232D1DA2670700A7A512 /* NSTimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerEx.swift; sourceTree = "<group>"; };
+		17E260EC1DA88F0F00F8B294 /* FYAnimatedLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYAnimatedLayer.swift; sourceTree = "<group>"; };
+		17F4ABAD1DA7626D002F51B1 /* FYPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYPageControl.swift; sourceTree = "<group>"; };
+		17F4ABAF1DA77C03002F51B1 /* FYSliderViewCustomizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYSliderViewCustomizable.swift; sourceTree = "<group>"; };
+		6841795C48BA0775D44BB719 /* Pods_FYSliderView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYSliderView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		974BF91BAFFC1ED3D4310F52 /* Pods-FYSliderView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYSliderView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FYSliderView/Pods-FYSliderView.debug.xcconfig"; sourceTree = "<group>"; };
+		FE70E4A0185A5E229F1FA093 /* Pods-FYSliderView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYSliderView.release.xcconfig"; path = "Pods/Target Support Files/Pods-FYSliderView/Pods-FYSliderView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D7F4A831CBBD68D88614BC6 /* Pods_FYSliderView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0A8CE43A424B6398F211A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6841795C48BA0775D44BB719 /* Pods_FYSliderView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		179223091DA1F5D000A7A512 = {
 			isa = PBXGroup;
 			children = (
 				179223141DA1F5D000A7A512 /* FYSliderView */,
 				179223131DA1F5D000A7A512 /* Products */,
+				C347E7C893F018F1422A5D89 /* Pods */,
+				0C0A8CE43A424B6398F211A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,7 +79,6 @@
 		179223141DA1F5D000A7A512 /* FYSliderView */ = {
 			isa = PBXGroup;
 			children = (
-				1792232C1DA2670100A7A512 /* Tools */,
 				179223271DA1F5EE00A7A512 /* FYSliderView */,
 				179223151DA1F5D000A7A512 /* AppDelegate.swift */,
 				179223171DA1F5D000A7A512 /* ViewController.swift */,
@@ -77,16 +95,20 @@
 			children = (
 				179223281DA1F62700A7A512 /* FYCollectionViewCell.swift */,
 				1792232A1DA1F65400A7A512 /* FYSliderView.swift */,
+				17F4ABAD1DA7626D002F51B1 /* FYPageControl.swift */,
+				17E260EC1DA88F0F00F8B294 /* FYAnimatedLayer.swift */,
+				17F4ABAF1DA77C03002F51B1 /* FYSliderViewCustomizable.swift */,
 			);
 			path = FYSliderView;
 			sourceTree = "<group>";
 		};
-		1792232C1DA2670100A7A512 /* Tools */ = {
+		C347E7C893F018F1422A5D89 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1792232D1DA2670700A7A512 /* NSTimerEx.swift */,
+				974BF91BAFFC1ED3D4310F52 /* Pods-FYSliderView.debug.xcconfig */,
+				FE70E4A0185A5E229F1FA093 /* Pods-FYSliderView.release.xcconfig */,
 			);
-			path = Tools;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,9 +118,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 179223241DA1F5D000A7A512 /* Build configuration list for PBXNativeTarget "FYSliderView" */;
 			buildPhases = (
+				D2CD1768F5531E43D5E3434C /* [CP] Check Pods Manifest.lock */,
 				1792230E1DA1F5D000A7A512 /* Sources */,
 				1792230F1DA1F5D000A7A512 /* Frameworks */,
 				179223101DA1F5D000A7A512 /* Resources */,
+				27F7939BA62DF975D7F6D7C6 /* [CP] Embed Pods Frameworks */,
+				B5BEE92AE085E0CABA68317E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,6 +180,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27F7939BA62DF975D7F6D7C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FYSliderView/Pods-FYSliderView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5BEE92AE085E0CABA68317E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FYSliderView/Pods-FYSliderView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2CD1768F5531E43D5E3434C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1792230E1DA1F5D000A7A512 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -163,8 +236,10 @@
 				179223291DA1F62700A7A512 /* FYCollectionViewCell.swift in Sources */,
 				179223181DA1F5D000A7A512 /* ViewController.swift in Sources */,
 				1792232B1DA1F65400A7A512 /* FYSliderView.swift in Sources */,
-				1792232E1DA2670700A7A512 /* NSTimerEx.swift in Sources */,
+				17F4ABB01DA77C03002F51B1 /* FYSliderViewCustomizable.swift in Sources */,
+				17F4ABAE1DA7626D002F51B1 /* FYPageControl.swift in Sources */,
 				179223161DA1F5D000A7A512 /* AppDelegate.swift in Sources */,
+				17E260ED1DA88F0F00F8B294 /* FYAnimatedLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +350,7 @@
 		};
 		179223251DA1F5D000A7A512 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 974BF91BAFFC1ED3D4310F52 /* Pods-FYSliderView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FYSliderView/Info.plist;
@@ -286,6 +362,7 @@
 		};
 		179223261DA1F5D000A7A512 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE70E4A0185A5E229F1FA093 /* Pods-FYSliderView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FYSliderView/Info.plist;
@@ -314,6 +391,7 @@
 				179223261DA1F5D000A7A512 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
