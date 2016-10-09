@@ -53,21 +53,14 @@ extension FYSliderViewCustomizable{
         return true
     }
     var controlType:FYPageControlType{
-        #if false
-            
-        return .system(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
-                       normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
-                       point:(x:.centerX,y:.bottom(10)))
- 
-//        return .none
-        #else
+        
         return .custom(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
                         normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
-                        layout:[.positions(x:.right(10), y:.bottom(16)),
+                        layout:[.point(x:.right(10), y:.bottom(16)),
                                 .size(borderWidth:2,circleWidth:10),
                                 .margin(12)
                                 ])
-        #endif
+        
     }
     var scrollTimeInterval:NSTimeInterval{
         return 2
@@ -84,13 +77,9 @@ extension FYSliderViewCustomizable{
     }
     
     var maskType:FYSliderCellMaskType{
-        #if false
         return .gradient(backgroundColors: [UIColor(red: 0, green: 0, blue: 0, alpha: 0),
                                             UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)],
                          offsetY: 100)
-        #else
-            return .translucent(backgroundColor:UIColor(red: 0, green: 0, blue: 0, alpha: 0.5))
-        #endif
     }
     
     var titleStyle:FYTitleStyle{
@@ -114,7 +103,7 @@ enum FYPotionsY {
 enum FYPageControlStyle {
     
     //坐标点
-    case positions(x:FYPotionsX, y:FYPotionsY)
+    case point(x:FYPotionsX, y:FYPotionsY)
     //尺寸大小
     case size(borderWidth:CGFloat,circleWidth:CGFloat)
     //元素之间的距离

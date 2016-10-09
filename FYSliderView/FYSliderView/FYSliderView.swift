@@ -134,7 +134,7 @@ class FYSliderView: UIView {
             control.hidesForSinglePage = option.hidesForSinglePage
             self.pageControl = control
 
-            let tempStyle = FYPageControlStyle.positions(x: point.x, y: point.y)
+            let tempStyle = FYPageControlStyle.point(x: point.x, y: point.y)
             self.pageControlLayout = FYLayout()
             self.pageControlLayout?.append(tempStyle)
             
@@ -258,8 +258,8 @@ class FYSliderView: UIView {
                 }
             }
 
-            if let positions = layout.fy_equalAssociatedValue(.positions(x:.centerX,y:.centerY)),
-                case .positions(let point) = positions {
+            if let positions = layout.fy_equalAssociatedValue(.point(x:.centerX,y:.centerY)),
+                case .point(let point) = positions {
                 
                 switch point.y {
                 case .bottom(let value):
@@ -421,7 +421,7 @@ extension FYSliderView:UIScrollViewDelegate{
 
 private func === (lhs: FYPageControlStyle, rhs: FYPageControlStyle) -> Bool {
     switch (lhs, rhs) {
-    case (.positions, .positions): return true
+    case (.point, .point): return true
     case (.size,      .size):      return true
     case (.margin,    .margin):    return true
     default: return false

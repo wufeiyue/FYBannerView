@@ -40,6 +40,12 @@ class ViewController: UIViewController,FYSliderViewCustomizable {
         sliderView.imageObjectGroup = dataSource
         view.addSubview(sliderView)
     }
+    
+//    var controlType:FYPageControlType{
+//        return .system(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
+//                              normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
+//                              point:(x:.centerX,y:.bottom(10)))
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
