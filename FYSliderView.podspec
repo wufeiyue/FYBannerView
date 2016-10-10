@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FYSliderView"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "使用UICollectionView实现的swift轮播图FYSliderView"
 
   # This description is used to generate tags and improve search results.
