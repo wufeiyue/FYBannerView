@@ -146,6 +146,7 @@ y轴方向可表示为：
 - .top(10)  到sliderView试图顶部距离10个单位
 - .centerY  相对于sliderView垂直居中
 - .bottom(20)到sliderView试图底部距离20个单位
+
 **效果如图**
 - ![右下角显示](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner3.gif)
 - ![水平垂直居中](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner4.gif) 
@@ -155,6 +156,7 @@ y轴方向可表示为：
 其中遮罩试图的类型有：
 - translucent 半透明
 - gradient 渐变色（默认）
+
 **效果如图**
 - ![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner0.gif)
 - ![渐变背景色](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner2.gif)
