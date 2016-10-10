@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FYSliderViewCustomizable {
+public protocol FYSliderViewCustomizable:class {
     
     //默认背景图
     var placeholderImage:UIImage {get}
@@ -42,7 +42,7 @@ protocol FYSliderViewCustomizable {
     
 }
 
-extension FYSliderViewCustomizable{
+public extension FYSliderViewCustomizable{
     var placeholderImage:UIImage{
         return UIImage(named: "fy_placeholderImage") ?? fetchTempBackgroundImage()
     }
@@ -88,19 +88,19 @@ extension FYSliderViewCustomizable{
 
 }
 //MARK: - pageControl相关设置
-enum FYPotionsX {
+public enum FYPotionsX {
     case left(_:CGFloat)      //居左距离
     case right(_:CGFloat)     //居右距离
     case centerX              //水平居中
 }
 
-enum FYPotionsY {
+public enum FYPotionsY {
     case top(_:CGFloat)       //居顶距离
     case bottom(_:CGFloat)    //居底距离
     case centerY              //垂直居中
 }
 
-enum FYPageControlStyle {
+public enum FYPageControlStyle {
     
     //坐标点
     case point(x:FYPotionsX, y:FYPotionsY)
@@ -110,7 +110,7 @@ enum FYPageControlStyle {
     case margin(_:CGFloat)
 }
 
-enum FYPageControlType {
+public enum FYPageControlType {
     
     /* 自定义的pageControl样式，有动画效果
      * currentColor : 当前选中的元素背景色
@@ -131,7 +131,7 @@ enum FYPageControlType {
 }
 
 //MARK: - 遮罩背景相关设置
-enum FYSliderCellMaskType {
+public enum FYSliderCellMaskType {
     
     //半透明
     case translucent(backgroundColor:UIColor)
@@ -143,7 +143,7 @@ enum FYSliderCellMaskType {
     case gradient(backgroundColors:[UIColor],offsetY:CGFloat)
 }
 //MARK: - 文字标题相关设置
-enum FYTitleLabelStyle{
+public enum FYTitleLabelStyle{
     case fontSize(_:CGFloat)          //文字大小
     case textColor(_:UIColor)         //文字颜色
     case textInsets(_:UIEdgeInsets)   //文字内部边距

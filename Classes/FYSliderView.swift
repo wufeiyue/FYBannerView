@@ -15,20 +15,25 @@ import UIKit
     optional func sliderView(didScrollToIndex index:Int) -> Void
 }
 
-typealias FYLayout = [FYPageControlStyle]
-typealias FYPoint = (x:FYPotionsX, y:FYPotionsY)
-typealias FYTitleStyle = [FYTitleLabelStyle]
+public typealias FYLayout = [FYPageControlStyle]
+public typealias FYPoint = (x:FYPotionsX, y:FYPotionsY)
+public typealias FYTitleStyle = [FYTitleLabelStyle]
 
-struct FYImageObject {
-    var url:String?
-    var title:String?
+public struct FYImageObject {
+    public var url:String?
+    public var title:String?
+    public init(url:String?, title:String?){
+        self.url = url
+        self.title = title
+    }
+//    public init(url:String?, title:String?)
 }
 
-class FYSliderView: UIView {
+public class FYSliderView: UIView {
 
-    let option:FYSliderViewCustomizable
-    weak var delegate:FYSliderViewDelegate?
-    var imageObjectGroup:[FYImageObject]! {
+    public let option:FYSliderViewCustomizable
+    public weak var delegate:FYSliderViewDelegate?
+    public var imageObjectGroup:[FYImageObject]! {
         willSet{
             totalImageCount = option.infiniteLoop == true ? newValue.count * 2 : newValue.count
             
@@ -78,7 +83,7 @@ class FYSliderView: UIView {
         return bgImageView
     }()
     
-    init(frame: CGRect,option:FYSliderViewCustomizable) {
+    public init(frame: CGRect,option:FYSliderViewCustomizable) {
         self.option = option
         super.init(frame: frame)
         layer.contents = option.placeholderImage.CGImage
@@ -87,14 +92,14 @@ class FYSliderView: UIView {
         addChildView()
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
         setupPageControl()
         addChildView()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -223,7 +228,7 @@ class FYSliderView: UIView {
         
     }
 
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         let Height  = bounds.size.height
         let Width   = bounds.size.width
@@ -321,11 +326,11 @@ class FYSliderView: UIView {
 
 extension FYSliderView:UICollectionViewDelegate,UICollectionViewDataSource{
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return totalImageCount
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         var cell:FYCollectionViewCell!
         
@@ -368,7 +373,7 @@ extension FYSliderView:UICollectionViewDelegate,UICollectionViewDataSource{
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let indexOnPageControl = pageControlIndexWithCurrentCellIndex(indexPath.item)
         if self.delegate != nil {
             self.delegate?.sliderView?(didSelectItemAtIndex: indexOnPageControl)
@@ -377,7 +382,7 @@ extension FYSliderView:UICollectionViewDelegate,UICollectionViewDataSource{
 }
 
 extension FYSliderView:UIScrollViewDelegate{
-    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+    public func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
         if imageObjectGroup.isEmpty {return}
         let itemIndex = currentIndex()
         let indexOnPageControl = pageControlIndexWithCurrentCellIndex(itemIndex)
@@ -399,23 +404,23 @@ extension FYSliderView:UIScrollViewDelegate{
 
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if option.autoScroll && option.infiniteLoop{
             setupTimer()
         }
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         self.scrollViewDidEndScrollingAnimation(self.collectionView)
     }
     
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         if option.autoScroll && option.infiniteLoop{
             invalidateTimer()
         }
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    public func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView.isEqual(self.collectionView) != true {return}
         if imageObjectGroup.isEmpty {return}
         let itemIndex = currentIndex()

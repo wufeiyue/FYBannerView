@@ -11,36 +11,36 @@ import Kingfisher
 
 
 
-class FYTextInsetsLabel:UILabel{
-    var textInsets:UIEdgeInsets = UIEdgeInsetsZero
+public class FYTextInsetsLabel:UILabel{
+    public var textInsets:UIEdgeInsets = UIEdgeInsetsZero
     
-    override func drawTextInRect(rect: CGRect) {
+    override public func drawTextInRect(rect: CGRect) {
         super.drawTextInRect(UIEdgeInsetsInsetRect(rect, textInsets))
     }
     
 }
 
-class FYCollectionViewCell: UICollectionViewCell {
+public class FYCollectionViewCell: UICollectionViewCell {
     
-    var data:FYImageObject!
-    var placeholderImage:UIImage!
-    var imageContentMode:UIViewContentMode!
+    public var data:FYImageObject!
+    public var placeholderImage:UIImage!
+    public var imageContentMode:UIViewContentMode!
     
-    var hasConfigured:Bool!
-    var textLabel:FYTextInsetsLabel!
+    public var hasConfigured:Bool!
+    public var textLabel:FYTextInsetsLabel!
 
-    var labelHeight:CGFloat = 44
-    var colors:[UIColor]!
-    var maskHeight:CGFloat!
+    public var labelHeight:CGFloat = 44
+    public var colors:[UIColor]!
+    public var maskHeight:CGFloat!
     
     private var imageView:UIImageView!
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         createView()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -58,7 +58,7 @@ class FYCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(textLabel)
     }
 
-    func draw(){
+    public func draw(){
         
         if let title = data.title where title.characters.count > 0{
             textLabel.hidden = false
@@ -81,7 +81,7 @@ class FYCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = imageContentMode
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         textLabel.frame = CGRect(x: 0, y: self.bounds.size.height - labelHeight, width: self.bounds.size.width, height: labelHeight)
         
@@ -90,25 +90,25 @@ class FYCollectionViewCell: UICollectionViewCell {
     }
     
     //cell的标示符
-    static func cellReuseIdentifier() -> String {
+    public static func cellReuseIdentifier() -> String {
         return self.classForCoder().description()
     }
 
 }
 
-class FYTranslucentCell:FYCollectionViewCell{
+public class FYTranslucentCell:FYCollectionViewCell{
     private override func createView() {
         super.createView()
         
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         textLabel.backgroundColor = colors.first
     }
 }
 
-class FYGradientCell:FYCollectionViewCell{
+public class FYGradientCell:FYCollectionViewCell{
     
     private lazy var gradientLayer:CAGradientLayer = {
         let layer = CAGradientLayer()
@@ -120,7 +120,7 @@ class FYGradientCell:FYCollectionViewCell{
         imageView.layer.addSublayer(gradientLayer)
     }
     
-    override func draw() {
+    override public func draw() {
         super.draw()
         guard data.title?.characters.count > 0 else{
             gradientLayer.hidden = true
@@ -129,7 +129,7 @@ class FYGradientCell:FYCollectionViewCell{
         gradientLayer.hidden = false
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         gradientLayer.colors = self.colors.map{return $0.CGColor}
         gradientLayer.bounds = CGRect(x:0, y: 0, width:self.bounds.size.width, height:maskHeight)

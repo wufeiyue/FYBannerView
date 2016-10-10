@@ -8,11 +8,11 @@
 
 import UIKit
 
-class FYPageControl: UIControl {
+public class FYPageControl: UIControl {
 
     
-    var numberOfPages:Int?
-    var currentPage:Int?{
+    public var numberOfPages:Int?
+    public var currentPage:Int?{
         willSet{
             if let value = newValue {
                 guard value < numberOfPages else{
@@ -29,16 +29,16 @@ class FYPageControl: UIControl {
         }
     }
 
-    var margin:CGFloat!
-    var dotWidth:CGFloat!
-    var borderWidth:CGFloat!
+    public var margin:CGFloat!
+    public var dotWidth:CGFloat!
+    public var borderWidth:CGFloat!
     
-    let hidesForSinglePage:Bool
-    let pageIndicatorTintColor: UIColor
-    let currentPageIndicatorTintColor: UIColor
+    public let hidesForSinglePage:Bool
+    public let pageIndicatorTintColor: UIColor
+    public let currentPageIndicatorTintColor: UIColor
     private var dots:[FYAnimatedLayer] = [FYAnimatedLayer]()
     
-    init(pageIndicatorTintColor:UIColor, currentPageIndicatorTintColor:UIColor, hidesForSinglePage:Bool) {
+    public init(pageIndicatorTintColor:UIColor, currentPageIndicatorTintColor:UIColor, hidesForSinglePage:Bool) {
         
         self.pageIndicatorTintColor = pageIndicatorTintColor
         self.currentPageIndicatorTintColor = currentPageIndicatorTintColor
@@ -48,11 +48,11 @@ class FYPageControl: UIControl {
     
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateDots(){
+    public func updateDots(){
         
         for i in 0..<numberOfPages! {
             
@@ -119,11 +119,11 @@ class FYPageControl: UIControl {
         }
     }
     
-    func sizeForNumberOfPages(pageCount: Int) -> CGSize {
+    public func sizeForNumberOfPages(pageCount: Int) -> CGSize {
         return CGSize(width: (dotWidth + (margin ?? 10)) * CGFloat(pageCount) - (margin ?? 10), height:dotWidth)
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         bounds.origin = CGPoint.zero

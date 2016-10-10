@@ -8,13 +8,13 @@
 
 import UIKit
 
-class FYAnimatedLayer:CAShapeLayer{
-    let normal_color:CGColor
-    let selected_color:CGColor
-    let border: CGFloat
-    let width:CGFloat
+public class FYAnimatedLayer:CAShapeLayer{
+    public let normal_color:CGColor
+    public let selected_color:CGColor
+    public let border: CGFloat
+    public let width:CGFloat
     
-    init(currentColor:UIColor,normalColor:UIColor, border:CGFloat,width:CGFloat) {
+    public init(currentColor:UIColor,normalColor:UIColor, border:CGFloat,width:CGFloat) {
         self.normal_color = normalColor.CGColor
         self.selected_color = currentColor.CGColor
         self.border = border
@@ -25,7 +25,7 @@ class FYAnimatedLayer:CAShapeLayer{
     }
 
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -42,7 +42,7 @@ class FYAnimatedLayer:CAShapeLayer{
         self.path = circle.CGPath
     }
     
-    func startAnimation(){
+    public func startAnimation(){
         
         let fill_color = CABasicAnimation.init(keyPath: "fillColor")
         fill_color.fromValue = UIColor.clearColor().CGColor
@@ -66,7 +66,7 @@ class FYAnimatedLayer:CAShapeLayer{
         addAnimation(zoom, forKey: "transform-start")
     }
     
-    func stopAnimation(){
+    public func stopAnimation(){
         
         let fill_color = CABasicAnimation.init(keyPath: "fillColor")
         fill_color.fromValue = selected_color
