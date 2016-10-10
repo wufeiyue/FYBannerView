@@ -8,44 +8,45 @@
 
 import UIKit
 
-class ViewController: UIViewController,FYSliderViewCustomizable {
+class ViewController: UIViewController {
 
-    var dataSource:[FYImageObject]!
-    var sliderView:FYSliderView!
-    
+    var tableView:UITableView!
+    var dataSource:[String]!
+    var classArr:[UIViewController]!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         initData()
-        
-        setupSliderView()
-        
+        createView()
     }
     
     func initData(){
-        let imageObj1 = FYImageObject(url:"http://www.wufeiyue.com/wp-content/uploads/2016/10/pic0.jpg" ,title:"“十一”旅游“红黑榜”发布")
+        dataSource = ["没有文字,自定义pageControl(默认)",
+                      "没有文字,改变自定义pageControl的大小和位置",
+                      "没有文字,使用系统pageControl",
+                      "没有文字,改变系统pageControl的位置",
+                      "有文字,使用渐变色遮罩背景(默认)",
+                      "有文字,使用半透明遮罩背景",
+                      "有文字,自定义文字大小/内边距/颜色",
+                      "实现代理方法,触发点击回调方法",]
+        classArr = [ZeroViewController(),
+                    FirstViewController(),
+                    TwoViewController(),
+                    ThreeViewController(),
+                    FourViewController(),
+                    FiveViewController(),
+                    SixViewController(),
+                    SevenViewController()]
         
-        let imageObj2 = FYImageObject(url:"http://www.wufeiyue.com/wp-content/uploads/2016/10/pic1.jpg" ,title:"国庆黄金周出境游是去年的两倍")
-        
-        let imageObj3 = FYImageObject(url:"http://www.wufeiyue.com/wp-content/uploads/2016/10/pic2.jpg" ,title:"韶山获评为全国旅游“综合秩序最佳景区”")
-        
-        let imageObj4 = FYImageObject(url:"http://www.wufeiyue.com/wp-content/uploads/2016/10/pic5.jpg" ,title:"国庆黄金周合肥接待游客1287万 ")
-        
-        dataSource = [imageObj1,imageObj2,imageObj3,imageObj4] //
+        title = "FYSliderView"
     }
     
-    func setupSliderView(){
-        sliderView = FYSliderView(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 200),option:self)
-        sliderView.delegate = self
-        sliderView.imageObjectGroup = dataSource
-        view.addSubview(sliderView)
+    func createView(){
+        tableView = UITableView(frame: view.bounds, style: .Plain)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ID")
+        view.addSubview(tableView)
     }
-    
-//    var controlType:FYPageControlType{
-//        return .system(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
-//                              normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
-//                              point:(x:.centerX,y:.bottom(10)))
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,13 +55,20 @@ class ViewController: UIViewController,FYSliderViewCustomizable {
 
 }
 
-extension ViewController:FYSliderViewDelegate{
-    func sliderView(didScrollToIndex index: Int) {
-        print("滚到了\(index)")
+extension ViewController:UITableViewDelegate,UITableViewDataSource{
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
     }
-    
-    func sliderView(didSelectItemAtIndex index: Int) {
-        print("点了\(index)")
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ID")
+        cell?.textLabel?.text = dataSource[indexPath.row]
+        return cell!
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let vc = classArr[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 

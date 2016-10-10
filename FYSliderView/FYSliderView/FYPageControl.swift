@@ -75,7 +75,7 @@ class FYPageControl: UIControl {
     }
     
     private func updateDotFrame(closure:(CGPoint) -> Void, index:CGFloat){
-        let x = (dotWidth + margin) * index + dotWidth / 2
+        let x = (dotWidth + (margin ?? 10)) * index + dotWidth / 2
         let y = bounds.size.height / 2
         let point = CGPoint(x:x ,y:y)
         closure(point)
@@ -110,17 +110,17 @@ class FYPageControl: UIControl {
     
     private func changeActivity(active:Bool, index:Int){
         
-        let dot = dots[index]
+        let dot = dots.get(index)
         
         if active {
-            dot.startAnimation()
+            dot?.startAnimation()
         }else{
-            dot.stopAnimation()
+            dot?.stopAnimation()
         }
     }
     
     func sizeForNumberOfPages(pageCount: Int) -> CGSize {
-        return CGSize(width: (dotWidth + margin) * CGFloat(pageCount) - margin , height:dotWidth)
+        return CGSize(width: (dotWidth + (margin ?? 10)) * CGFloat(pageCount) - (margin ?? 10), height:dotWidth)
     }
     
     override func layoutSubviews() {
@@ -134,4 +134,11 @@ class FYPageControl: UIControl {
     
 
 
+}
+
+
+private extension Array {
+    func get(index: Int) -> Element? {
+        return index >= 0 && index < count ? self[index] : nil
+    }
 }

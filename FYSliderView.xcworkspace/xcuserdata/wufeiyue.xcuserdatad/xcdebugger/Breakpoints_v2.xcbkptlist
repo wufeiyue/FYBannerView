@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FYSliderView/FYSliderView/FYSliderView.swift"
-            timestampString = "497697577.598632"
+            timestampString = "497767789.126577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "492"
-            endingLineNumber = "492">
+            startingLineNumber = "513"
+            endingLineNumber = "513">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FYSliderView/FYSliderView/FYSliderView.swift"
-            timestampString = "497690618.523948"
+            timestampString = "497767789.126577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "419"
-            endingLineNumber = "419"
+            startingLineNumber = "440"
+            endingLineNumber = "440"
             landmarkName = "FYSliderView"
             landmarkType = "3">
          </BreakpointContent>
@@ -40,45 +40,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FYSliderView/FYSliderView/FYSliderView.swift"
-            timestampString = "497690618.523948"
+            timestampString = "497767789.126577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
             landmarkName = "layoutSubviews()"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FYSliderView/FYSliderView/FYPageControl.swift"
-            timestampString = "497671833.973187"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "layoutSubviews()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FYSliderView/FYSliderView/FYPageControl.swift"
-            timestampString = "497671833.973187"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "FYPageControl"
-            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -95,6 +63,38 @@
             endingLineNumber = "26"
             landmarkName = "FYPageControl"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FYSliderView.FYPageControl.currentPage.didset : Swift.Optional&lt;Swift.Int&gt;"
+                  moduleName = "FYSliderView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wufeiyue/Documents/GitHub/FYSliderView/FYSliderView/FYSliderView/FYPageControl.swift"
+                  timestampString = "497763807.015274"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FYSliderView.FYPageControl.currentPage.didset : Swift.Optional&lt;Swift.Int&gt;"
+                  moduleName = "FYSliderView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wufeiyue/Documents/GitHub/FYSliderView/FYSliderView/FYSliderView/FYPageControl.swift"
+                  timestampString = "497763807.015676"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FYSliderView/FYSliderView/FYSliderView.swift"
-            timestampString = "497690618.523948"
+            timestampString = "497767789.126577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
+            startingLineNumber = "336"
+            endingLineNumber = "336"
             landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FYSliderView/FYSliderView/FYSliderView.swift"
-            timestampString = "497690618.523948"
+            timestampString = "497767789.126577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
             landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -169,6 +169,22 @@
             continueAfterRunningActions = "No"
             scope = "0"
             stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FYSliderView/FYSliderView/FYSliderView.swift"
+            timestampString = "497767789.126577"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
+            landmarkName = "layoutSubviews()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

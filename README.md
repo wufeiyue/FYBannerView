@@ -156,7 +156,7 @@ y轴方向可表示为：
 - translucent 半透明
 - gradient 渐变色（默认）
 **效果如图**
-- ![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner6.gif)
+- ![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner0.gif)
 - ![渐变背景色](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner2.gif)
 
 **使用方法：**  
