@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     var tableView:UITableView!
     var dataSource:[String]!
-    var classArr:[UIViewController]!
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
@@ -28,15 +27,7 @@ class ViewController: UIViewController {
                       "有文字,使用半透明遮罩背景",
                       "有文字,自定义文字大小/内边距/颜色",
                       "实现代理方法,触发点击回调方法",]
-        classArr = [ZeroViewController(),
-                    FirstViewController(),
-                    TwoViewController(),
-                    ThreeViewController(),
-                    FourViewController(),
-                    FiveViewController(),
-                    SixViewController(),
-                    SevenViewController()]
-        
+
         title = "FYSliderView"
     }
     
@@ -66,8 +57,26 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let vc = classArr[indexPath.row]
-        navigationController?.pushViewController(vc, animated: true)
+        
+        switch indexPath.row {
+        case 0:
+            navigationController?.pushViewController(ZeroViewController(), animated: true)
+        case 1:
+            navigationController?.pushViewController(FirstViewController(), animated: true)
+        case 2:
+            navigationController?.pushViewController(TwoViewController(), animated: true)
+        case 3:
+            navigationController?.pushViewController(ThreeViewController(), animated: true)
+        case 4:
+            navigationController?.pushViewController(FourViewController(), animated: true)
+        case 5:
+            navigationController?.pushViewController(FiveViewController(), animated: true)
+        case 6:
+            navigationController?.pushViewController(SixViewController(), animated: true)
+        default:
+            navigationController?.pushViewController(SevenViewController(), animated: true)
+        }
+        
     }
 }
 

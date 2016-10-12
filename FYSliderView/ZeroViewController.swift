@@ -8,38 +8,40 @@
 
 import UIKit
 
-class ZeroViewController: UIViewController,FYSliderViewCustomizable {
+class ZeroViewController: Base1VC,FYSliderViewCustomizable {
     
-    var dataSource:[FYImageObject]!
+    
     var sliderView:FYSliderView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initData()
-        
+
         setupSliderView()
     }
     
-    func initData(){
-        let imageObj1 = FYImageObject(url:"http://www.wufeiyue.com/wp-content/uploads/2016/10/pic0.jpg" ,title:"")
+    //获得数据
+    func connectionDidFinishLoading(connection: NSURLConnection) {
         
-        let imageObj2 = FYImageObject(url:"http://www.wufeiyue.com/wp-content/uploads/2016/10/pic1.jpg" ,title:nil)
+        let dic = try! NSJSONSerialization.JSONObjectWithData(networkData, options: .MutableContainers)
+        let dataSource = dic["data"] as! [[String:String]]
         
-        let imageObj3 = FYImageObject(url:"http://www.wufeiyue.com/wp-content/uploads/2016/10/pic2.jpg" ,title:"")
+        self.sliderView.imageObjectGroup = dataSource.map({ dic in
+            return FYImageObject(url: dic["banner_picture_url"], title: dic["banner_title"])
+        })
         
-        let imageObj4 = FYImageObject(url:"http://www.wufeiyue.com/wp-content/uploads/2016/10/pic5.jpg" ,title:nil)
-        
-        dataSource = [imageObj1,imageObj2,imageObj3,imageObj4] //
     }
     
     func setupSliderView(){
         automaticallyAdjustsScrollViewInsets = false
         sliderView = FYSliderView(frame: CGRect(x: 0, y: 64, width: view.bounds.size.width, height: 200),option:self)
         view.addSubview(sliderView)
-        sliderView.imageObjectGroup = dataSource
+        
     }
     //MARK: - FYSliderView配置信息
     
+    deinit{
+//        print("被释放")
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

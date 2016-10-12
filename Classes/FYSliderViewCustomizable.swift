@@ -54,16 +54,13 @@ public extension FYSliderViewCustomizable{
     }
     var controlType:FYPageControlType{
         
-        return .custom(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
-                        normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
-                        layout:[.point(x:.centerX, y:.bottom(16)),
-                                .size(borderWidth:2,circleWidth:10),
-                                .margin(12)
-                                ])
+        return .custom(currentColor: UIColor.whiteColor(),
+                       normalColor: UIColor(red: 1, green: 1, blue: 1, alpha:0.8),
+                       layout: [.point(x:.centerX, y:.bottom(13)), .size(borderWidth: 2, circleWidth: 8)])
         
     }
     var scrollTimeInterval:NSTimeInterval{
-        return 2
+        return 4
     }
     var scrollDirection:UICollectionViewScrollDirection{
         return .Horizontal
@@ -83,7 +80,7 @@ public extension FYSliderViewCustomizable{
     }
     
     var titleStyle:FYTitleStyle{
-        return [.fontSize(16)]
+        return [.labelHeight(36)]
     }
 
 }

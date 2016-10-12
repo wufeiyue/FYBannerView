@@ -11,7 +11,12 @@ import UIKit
 public class FYPageControl: UIControl {
 
     
-    public var numberOfPages:Int?
+    public var numberOfPages:Int?{
+        willSet{
+            guard numberOfPages != nil && numberOfPages != newValue else{return}
+            defaultActiveStatus = false
+        }
+    }
     public var currentPage:Int?{
         willSet{
             if let value = newValue {
@@ -37,7 +42,7 @@ public class FYPageControl: UIControl {
     public let pageIndicatorTintColor: UIColor
     public let currentPageIndicatorTintColor: UIColor
     private var dots:[FYAnimatedLayer] = [FYAnimatedLayer]()
-    
+    private var defaultActiveStatus:Bool = true
     public init(pageIndicatorTintColor:UIColor, currentPageIndicatorTintColor:UIColor, hidesForSinglePage:Bool) {
         
         self.pageIndicatorTintColor = pageIndicatorTintColor
@@ -53,7 +58,7 @@ public class FYPageControl: UIControl {
     }
     
     public func updateDots(){
-        
+        guard numberOfPages != nil else{return}
         for i in 0..<numberOfPages! {
             
             let dot:FYAnimatedLayer!
@@ -70,7 +75,11 @@ public class FYPageControl: UIControl {
                 
                 }, index: CGFloat(i))
         }
-        changeActivity(true, index: 0) //默认第一个显示
+        
+        if defaultActiveStatus {
+            changeActivity(true, index: 0) //默认第一个显示
+        }
+        
         hideForSinglePage()
     }
     
@@ -100,7 +109,7 @@ public class FYPageControl: UIControl {
     
     private func generateDotView() -> FYAnimatedLayer {
         
-        let dotLayer = FYAnimatedLayer.init(currentColor: currentPageIndicatorTintColor, normalColor: pageIndicatorTintColor, border: borderWidth, width: dotWidth - borderWidth)
+        let dotLayer = FYAnimatedLayer(currentColor: currentPageIndicatorTintColor, normalColor: pageIndicatorTintColor, border: borderWidth, width: dotWidth - borderWidth)
         
         layer.addSublayer(dotLayer)
         dots.append(dotLayer)
@@ -128,8 +137,6 @@ public class FYPageControl: UIControl {
         
         bounds.origin = CGPoint.zero
         bounds.size = sizeForNumberOfPages(numberOfPages ?? 0)
-        
-        updateDots()
     }
     
 

@@ -194,4 +194,4 @@ var titleStyle:FYTitleStyle{
 ##结语
 将FYSliderView导入到工程项目中以后，开发者需将轮播图的占位图添加到项目图片目录下，可将占位图的图片资源名称命名为`fy_placeholderImage`或重写`var placeholderImage:UIImage`属性。如果开发者导入占位图资源图片到项目中，轮播图的占位图会替换成一张绘制而成的灰色背景图
 
-> 有任何疑问请到[个人博客](www.wufeiyue.com)留言
+> 有任何疑问请到(www.wufeiyue.com)留言

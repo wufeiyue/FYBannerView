@@ -53,7 +53,7 @@ public class FYCollectionViewCell: UICollectionViewCell {
         textLabel = FYTextInsetsLabel()
         textLabel.textInsets = UIEdgeInsetsMake(10, 10, 10, 10)
         textLabel.textColor = UIColor.whiteColor()
-        textLabel.font = UIFont.systemFontOfSize(16)
+        textLabel.font = UIFont.systemFontOfSize(14)
         textLabel.numberOfLines = 1
         contentView.addSubview(textLabel)
     }
@@ -89,9 +89,8 @@ public class FYCollectionViewCell: UICollectionViewCell {
 
     }
     
-    //cell的标示符
-    public static func cellReuseIdentifier() -> String {
-        return self.classForCoder().description()
+    deinit{
+//        print("Cell被销毁")
     }
 
 }
