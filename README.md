@@ -4,6 +4,8 @@
 - 带有动画效果的pageControl，可自定义pageControl元素之间的间距/大小/位置
 - 可自定义文字标题的字体大小/颜色/内边距
 - 有两种风格的文字标题遮罩背景（渐变色背景/半透明背景）
+- 文字轮播
+- 动态改变数据源，可以实时更新轮播图显示内容
 
 ##项目结构
 - - -
@@ -191,7 +193,5 @@ var titleStyle:FYTitleStyle{
 	return [.fontSize(16),textColor(UIColor.redColor())]
 }
 ```
-##结语
-将FYSliderView导入到工程项目中以后，开发者需将轮播图的占位图添加到项目图片目录下，可将占位图的图片资源名称命名为`fy_placeholderImage`或重写`var placeholderImage:UIImage`属性。如果开发者导入占位图资源图片到项目中，轮播图的占位图会替换成一张绘制而成的灰色背景图
 
-> 有任何疑问请到(www.wufeiyue.com)留言
+> 有任何疑问，欢迎加入QQ群:428463531讨论及分享

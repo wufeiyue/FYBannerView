@@ -39,7 +39,7 @@ class TwoViewController: UIViewController,FYSliderViewCustomizable {
 
     
     func setupSliderView(){
-        automaticallyAdjustsScrollViewInsets = false
+        
         sliderView = FYSliderView(frame: CGRect(x: 0, y: 64, width: view.bounds.size.width, height: 200),option:self)
         view.addSubview(sliderView)
         
@@ -47,6 +47,10 @@ class TwoViewController: UIViewController,FYSliderViewCustomizable {
     //MARK: - FYSliderView配置信息
     var controlType: FYPageControlType{
         return .system(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1) , normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),point:(x:.centerX, y:.bottom(10)))
+    }
+    
+    deinit{
+        print("TwoViewController")
     }
     
     override func didReceiveMemoryWarning() {

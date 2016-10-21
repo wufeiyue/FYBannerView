@@ -15,6 +15,7 @@
 		171D13671DAB29770045F95E /* SevenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D13661DAB29770045F95E /* SevenViewController.swift */; };
 		171D13691DAB29910045F95E /* SixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D13681DAB29910045F95E /* SixViewController.swift */; };
 		171D136B1DAB3EB40045F95E /* ZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D136A1DAB3EB40045F95E /* ZeroViewController.swift */; };
+		174CFFAC1DBA023E002FE6CB /* EightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174CFFAB1DBA023E002FE6CB /* EightViewController.swift */; };
 		179223161DA1F5D000A7A512 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179223151DA1F5D000A7A512 /* AppDelegate.swift */; };
 		179223181DA1F5D000A7A512 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179223171DA1F5D000A7A512 /* ViewController.swift */; };
 		1792231B1DA1F5D000A7A512 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179223191DA1F5D000A7A512 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		171D13661DAB29770045F95E /* SevenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenViewController.swift; sourceTree = "<group>"; };
 		171D13681DAB29910045F95E /* SixViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixViewController.swift; sourceTree = "<group>"; };
 		171D136A1DAB3EB40045F95E /* ZeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroViewController.swift; sourceTree = "<group>"; };
+		174CFFAB1DBA023E002FE6CB /* EightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightViewController.swift; sourceTree = "<group>"; };
 		179223121DA1F5D000A7A512 /* FYSliderView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYSliderView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		179223151DA1F5D000A7A512 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		179223171DA1F5D000A7A512 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				171D13641DAB295B0045F95E /* FiveViewController.swift */,
 				171D13681DAB29910045F95E /* SixViewController.swift */,
 				171D13661DAB29770045F95E /* SevenViewController.swift */,
+				174CFFAB1DBA023E002FE6CB /* EightViewController.swift */,
 			);
 			name = Example;
 			sourceTree = "<group>";
@@ -192,7 +195,7 @@
 				TargetAttributes = {
 					179223111DA1F5D000A7A512 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = KH9GWN95R9;
+						DevelopmentTeam = 6Z3H4837E8;
 					};
 				};
 			};
@@ -280,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				174CFFAC1DBA023E002FE6CB /* EightViewController.swift in Sources */,
 				179223291DA1F62700A7A512 /* FYCollectionViewCell.swift in Sources */,
 				17B035861DAD37BB008E1148 /* Base1VC.swift in Sources */,
 				179223181DA1F5D000A7A512 /* ViewController.swift in Sources */,
@@ -414,7 +418,7 @@
 				INFOPLIST_FILE = FYSliderView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rogrand.FYSliderView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rogrand.FYSliderView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -428,7 +432,7 @@
 				INFOPLIST_FILE = FYSliderView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rogrand.FYSliderView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rogrand.FYSliderView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

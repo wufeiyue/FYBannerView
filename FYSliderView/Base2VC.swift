@@ -9,7 +9,7 @@
 import UIKit
 
 class Base2VC: UIViewController {
-
+    
     var showLabel:UILabel!
     var textString:String!{
         willSet{
@@ -17,20 +17,27 @@ class Base2VC: UIViewController {
         }
     }
 
-    var networkData:NSData!
     override func viewDidLoad() {
         super.viewDidLoad()
-        initData()
+        
     }
     
-    func initData(){
+    ///获取数据
+    func getData(completion:(data:NSData)->Void){
         let url = NSURL(string: "http://7xt77b.com1.z0.glb.clouddn.com/fysliderview_text.json")
         let request = NSURLRequest.init(URL: url!)
-        let httpRequest = NSURLConnection.init(request: request, delegate: self)
-        httpRequest?.start()
-  
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                completion(data: data!)
+            })
+        }
+        task.resume()
+        
     }
     
+    //显示当前页面的索引label -->查看 SevenViewController
     func setupShowLabel(){
         showLabel = UILabel()
         showLabel.frame.size = CGSize(width: 100, height: 40)
@@ -52,10 +59,3 @@ class Base2VC: UIViewController {
 
 }
 
-extension Base2VC:NSURLConnectionDataDelegate{
-
-    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
-        self.networkData = NSData(data: data)
-    }
-
-}

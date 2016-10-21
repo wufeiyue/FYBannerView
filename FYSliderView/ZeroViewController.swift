@@ -16,31 +16,28 @@ class ZeroViewController: Base1VC,FYSliderViewCustomizable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupSliderView()
-    }
-    
-    //获得数据
-    func connectionDidFinishLoading(connection: NSURLConnection) {
+        //获取网络数据
+        getData { (data) in
+            let dic = try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
+            let dataSource = dic["data"] as! [[String:String]]
+            
+            self.sliderView.imageObjectGroup = dataSource.map({ dic in
+                return FYImageObject(url: dic["banner_picture_url"], title: dic["banner_title"])
+            })
+        }
         
-        let dic = try! NSJSONSerialization.JSONObjectWithData(networkData, options: .MutableContainers)
-        let dataSource = dic["data"] as! [[String:String]]
-        
-        self.sliderView.imageObjectGroup = dataSource.map({ dic in
-            return FYImageObject(url: dic["banner_picture_url"], title: dic["banner_title"])
-        })
-        
-    }
-    
-    func setupSliderView(){
-        automaticallyAdjustsScrollViewInsets = false
+        //初始化轮播图
         sliderView = FYSliderView(frame: CGRect(x: 0, y: 64, width: view.bounds.size.width, height: 200),option:self)
         view.addSubview(sliderView)
-        
     }
-    //MARK: - FYSliderView配置信息
+    
+        //MARK: - FYSliderView配置信息
+    var scrollTimeInterval: NSTimeInterval{
+        return 4
+    }
     
     deinit{
-//        print("被释放")
+        print("ZeroViewController")
     }
     
     override func didReceiveMemoryWarning() {

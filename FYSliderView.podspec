@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FYSliderView"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "使用UICollectionView实现的swift轮播图FYSliderView"
 
   # This description is used to generate tags and improve search results.
@@ -43,17 +43,6 @@ Pod::Spec.new do |s|
 
   #s.license      = "MIT (example)"
   s.license      = { :type => "MIT", :file => "LICENSE.md" }
-
-
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the authors of the library, with email addresses. Email addresses
-  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
-  #  accepts just a name if you'd rather not provide an email address.
-  #
-  #  Specify a social_media_url where others can refer to, for example a twitter
-  #  profile URL.
-  #
 
   s.author             = { "Angelo" => "ieppeo@163.com" }
   # Or just: s.author    = "Angelo"
@@ -82,7 +71,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/eppeo/FYSliderView.git", :tag => "1.0.5" }
+  s.source       = { :git => "https://github.com/eppeo/FYSliderView.git", :tag => "1.0.6" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

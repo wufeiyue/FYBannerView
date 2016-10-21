@@ -20,13 +20,14 @@ class ViewController: UIViewController {
     
     func initData(){
         dataSource = ["没有文字,自定义pageControl(默认)",
-                      "没有文字,改变自定义pageControl的大小和位置",
+                      "没有文字,自定义pageControl的样式及垂直滚动",
                       "没有文字,使用系统pageControl",
                       "没有文字,改变系统pageControl的位置",
                       "有文字,使用渐变色遮罩背景(默认)",
                       "有文字,使用半透明遮罩背景",
                       "有文字,自定义文字大小/内边距/颜色",
-                      "实现代理方法,触发点击回调方法",]
+                      "实现代理方法,触发点击回调方法",
+                      "无图,纯文字垂直轮播",]
 
         title = "FYSliderView"
     }
@@ -73,8 +74,10 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(FiveViewController(), animated: true)
         case 6:
             navigationController?.pushViewController(SixViewController(), animated: true)
-        default:
+        case 7:
             navigationController?.pushViewController(SevenViewController(), animated: true)
+        default:
+            navigationController?.pushViewController(EightViewController(), animated: true)
         }
         
     }

@@ -38,7 +38,7 @@ class FiveViewController: UIViewController,FYSliderViewCustomizable {
     }
     
     func setupSliderView(){
-        automaticallyAdjustsScrollViewInsets = false
+        
         sliderView = FYSliderView(frame: CGRect(x: 0, y: 64, width: view.bounds.size.width, height: 200),option:self)
         view.addSubview(sliderView)
         
@@ -51,6 +51,9 @@ class FiveViewController: UIViewController,FYSliderViewCustomizable {
         return .custom(currentColor:UIColor(red: 1, green: 1, blue: 1, alpha: 1) , normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),layout:[.point(x:.right(10), y:.bottom(13))])
     }
     
+    deinit{
+        print("FiveViewController")
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

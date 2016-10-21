@@ -68,6 +68,7 @@ public class FYCollectionViewCell: UICollectionViewCell {
         }
         
         if let url = data.url where url.characters.count > 0{
+            imageView.hidden = false
             
             //图片异步缓存库默认使用的是Kingfisher，如果使用的是SDWebImage请替换成下面注释行
             imageView.kf_setImageWithURL(NSURL(string: url), placeholderImage: placeholderImage, optionsInfo: .None, progressBlock: nil)
@@ -75,7 +76,8 @@ public class FYCollectionViewCell: UICollectionViewCell {
 //            imageView.sd_setImageWithURL(NSURL(string: url), placeholderImage: placeholderImage)
             
         }else{
-            imageView.image = placeholderImage
+            imageView.hidden = true
+            
         }
         
         imageView.contentMode = imageContentMode
@@ -88,11 +90,6 @@ public class FYCollectionViewCell: UICollectionViewCell {
         imageView.frame = self.bounds
 
     }
-    
-    deinit{
-//        print("Cell被销毁")
-    }
-
 }
 
 public class FYTranslucentCell:FYCollectionViewCell{
@@ -103,6 +100,12 @@ public class FYTranslucentCell:FYCollectionViewCell{
     
     override public func layoutSubviews() {
         super.layoutSubviews()
+        
+        guard data.title?.characters.count > 0 && data.url != nil else{
+            textLabel.backgroundColor = UIColor.clearColor()
+            return
+        }
+        
         textLabel.backgroundColor = colors.first
     }
 }
@@ -121,10 +124,11 @@ public class FYGradientCell:FYCollectionViewCell{
     
     override public func draw() {
         super.draw()
-        guard data.title?.characters.count > 0 else{
+        guard data.title?.characters.count > 0 && data.url != nil else{
             gradientLayer.hidden = true
             return
         }
+        
         gradientLayer.hidden = false
     }
     

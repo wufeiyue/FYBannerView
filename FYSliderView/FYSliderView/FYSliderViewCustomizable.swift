@@ -44,7 +44,7 @@ public protocol FYSliderViewCustomizable:class {
 
 public extension FYSliderViewCustomizable{
     var placeholderImage:UIImage{
-        return UIImage(named: "fy_placeholderImage") ?? fetchTempBackgroundImage()
+        return fetchTempBackgroundImage()
     }
     var infiniteLoop:Bool{
         return true
@@ -147,7 +147,7 @@ public enum FYTitleLabelStyle{
     case labelHeight(_:CGFloat)       //标题label的高度
 }
 
-//在没有配置占位图并且本地也没有找到"fy_placeholderImage@2x.png"图片的时候，调用此方法绘制一个纯色背景的图充当占位图
+//在没有配置占位图的时候，调用此方法会绘制一个纯色背景的图充当占位图
 private func fetchTempBackgroundImage() -> UIImage {
     let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
     UIGraphicsBeginImageContextWithOptions(rect.size, true, 0)

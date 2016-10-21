@@ -81,6 +81,7 @@ public class FYSliderView: UIView {
     private lazy var flowLayout:UICollectionViewFlowLayout = {
        let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
         return flowLayout
     }()
     private lazy var backgroundImage:UIImageView = {
@@ -92,7 +93,6 @@ public class FYSliderView: UIView {
     public init(frame: CGRect,option:FYSliderViewCustomizable) {
         self.option = option
         super.init(frame: frame)
-        layer.contents = option.placeholderImage.CGImage
         setupCollectionView()
         setupPageControl()
         addChildView() 
@@ -128,8 +128,8 @@ public class FYSliderView: UIView {
         collection.dataSource = self
         collection.delegate = self
         collection.scrollsToTop = false
-        collection.contentInset = UIEdgeInsetsZero
-        collection.scrollIndicatorInsets = UIEdgeInsetsZero
+        collection.directionalLockEnabled = true
+        
         collection.registerClass(FYGradientCell.self, forCellWithReuseIdentifier: "FYGradientCellIdentifier")
         collection.registerClass(FYTranslucentCell.self, forCellWithReuseIdentifier: "FYTranslucentCellIdentifier")
         self.collectionView = collection
@@ -212,11 +212,14 @@ public class FYSliderView: UIView {
     }
     
     private func setupTimer(){
-        let timer = NSTimer.scheduledTimerWithTimeInterval(option.scrollTimeInterval, target: self, selector: #selector(automaticScroll), userInfo: nil, repeats: true)
         
-        NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
-        timer.fire()
-        self.timer = timer
+        if self.timer == nil {
+            let timer = NSTimer.scheduledTimerWithTimeInterval(option.scrollTimeInterval, target: self, selector: #selector(automaticScroll), userInfo: nil, repeats: true)
+            
+            NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+            self.timer = timer
+        }
+        
     }
     
     //定时器
@@ -226,7 +229,6 @@ public class FYSliderView: UIView {
         let indexOnPageControl = pageControlIndexWithCurrentCellIndex(currentIndex)
         let targetIndex = indexOnPageControl + 1
         scrollToIndex(targetIndex,animated: true)
-
     }
     
     public override func willMoveToSuperview(newSuperview: UIView?) {
@@ -281,6 +283,7 @@ public class FYSliderView: UIView {
     
         backgroundImage.frame = bounds
         collectionView.frame = bounds
+        collectionView.contentInset = UIEdgeInsetsZero
         
         if let layout = self.pageControlLayout {
             
@@ -335,12 +338,15 @@ public class FYSliderView: UIView {
             pageControl?.frame.origin = CGPoint(x: offsetX, y: offsetY)
         }
         
-        if collectionView.contentOffset.x == 0 {
+        if collectionView.contentOffset.x == 0 || collectionView.contentOffset.y == 0 {
             scrollToIndex(0,animated: false)
         }
+        
+        
     }
 
     deinit{
+        print("sliderView被释放")
         collectionView.dataSource = nil
         collectionView.delegate = nil
     }
@@ -409,6 +415,7 @@ extension FYSliderView:UICollectionViewDelegate,UICollectionViewDataSource{
 extension FYSliderView:UIScrollViewDelegate{
     
     public func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+        
         if imageObjectGroup.isEmpty {return}
         let itemIndex = currentIndex()
         let indexOnPageControl = pageControlIndexWithCurrentCellIndex(itemIndex)
@@ -424,20 +431,27 @@ extension FYSliderView:UIScrollViewDelegate{
             }
         }else{
             if itemIndex >= totalImageCount/2 {
-                collectionView.contentOffset.x = 0
+                if option.scrollDirection == .Horizontal {
+                    collectionView.contentOffset.x = 0
+                }else{
+                    collectionView.contentOffset.y = 0
+                }
             }
         }
+      
 
     }
     
     public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if option.autoScroll && option.infiniteLoop && decelerate == false {
+        if option.autoScroll && option.infiniteLoop{
             setupTimer()
         }
     }
     
     public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
         self.scrollViewDidEndScrollingAnimation(self.collectionView)
+       
     }
     
     public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -447,6 +461,7 @@ extension FYSliderView:UIScrollViewDelegate{
     }
     
     public func scrollViewDidScroll(scrollView: UIScrollView) {
+        
         guard scrollView.isEqual(self.collectionView) == true && imageObjectGroup != nil else{return}
     
         let itemIndex = currentIndex()
@@ -462,9 +477,9 @@ extension FYSliderView:UIScrollViewDelegate{
         if let control = pageControl as? UIPageControl {
             control.currentPage = indexOnPageControl
         }
-        
+ 
         self.tempIndexOnPageControl = indexOnPageControl
-
+    
     }
     
 }
