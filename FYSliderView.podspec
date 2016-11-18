@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FYSliderView"
-  s.version      = "1.0.6"
+  s.version      = "1.0.7"
   s.summary      = "使用UICollectionView实现的swift轮播图FYSliderView"
 
   # This description is used to generate tags and improve search results.
@@ -57,30 +57,8 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios
   s.platform     = :ios, "8.0"
+  s.source       = { :git => "https://github.com/eppeo/FYSliderView.git", :tag => "1.0.7" }
 
-  #  When using multiple platforms
-  # s.ios.deployment_target = "7.0"
-  # s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
-
-
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the location from where the source should be retrieved.
-  #  Supports git, hg, bzr, svn and HTTP.
-  #
-
-  s.source       = { :git => "https://github.com/eppeo/FYSliderView.git", :tag => "1.0.6" }
-
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
 
   s.source_files  = "Classes", "Classes/*"
   #s.exclude_files = "Classes/Exclude"
