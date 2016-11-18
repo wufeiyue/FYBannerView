@@ -10,7 +10,18 @@ import UIKit
 
 class Base1VC: UIViewController {
     
-    var showLabel:UILabel!
+    //显示label 详情见SevenViewController
+    lazy var showLabel:UILabel = {[unowned self] in
+        $0.frame.size = CGSize(width: 100, height: 40)
+        $0.center = self.view.center
+        $0.textColor = UIColor.whiteColor()
+        $0.backgroundColor = UIColor.grayColor()
+        $0.font = UIFont.systemFontOfSize(18)
+        $0.textAlignment = .Center
+        $0.text = "显示值"
+        return $0
+    }(UILabel())
+    
     var textString:String!{
         willSet{
             showLabel.text = newValue
@@ -21,7 +32,7 @@ class Base1VC: UIViewController {
         super.viewDidLoad()
     }
     
-    ///获取数据
+    ///获取数据，这是一个异步调用的方法
     func getData(completion:(data:NSData)->Void){
         let url = NSURL(string: "http://7xt77b.com1.z0.glb.clouddn.com/fysliderview_notext.json")
         let request = NSURLRequest.init(URL: url!)
@@ -35,21 +46,6 @@ class Base1VC: UIViewController {
         task.resume()
         
     }
-
-    
-    //显示label 详情见SevenViewController
-    func setupShowLabel(){
-        showLabel = UILabel()
-        showLabel.frame.size = CGSize(width: 100, height: 40)
-        showLabel.center = view.center
-        showLabel.textColor = UIColor.whiteColor()
-        showLabel.backgroundColor = UIColor.grayColor()
-        showLabel.font = UIFont.systemFontOfSize(18)
-        showLabel.textAlignment = .Center
-        showLabel.text = "显示值"
-        view.addSubview(showLabel)
-    }
-    
     
     
     

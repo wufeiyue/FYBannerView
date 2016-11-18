@@ -20,7 +20,6 @@ class ThreeViewController: UIViewController,FYSliderViewCustomizable {
         setupSliderView()
     }
     
-    
     func initData(){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             let imageObj1 = FYImageObject(url:"http://www.wufeiyue.com/wp-content/uploads/2016/10/pic0.jpg" ,title:"")

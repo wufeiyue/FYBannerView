@@ -75,77 +75,17 @@ public extension FYSliderViewCustomizable{
     
     var maskType:FYSliderCellMaskType{
         return .gradient(backgroundColors: [UIColor(red: 0, green: 0, blue: 0, alpha: 0),
-                                            UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)],
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)],
                          offsetY: 100)
     }
     
     var titleStyle:FYTitleStyle{
         return [.labelHeight(36)]
     }
-
-}
-//MARK: - pageControl相关设置
-public enum FYPotionsX {
-    case left(_:CGFloat)      //居左距离
-    case right(_:CGFloat)     //居右距离
-    case centerX              //水平居中
+    
 }
 
-public enum FYPotionsY {
-    case top(_:CGFloat)       //居顶距离
-    case bottom(_:CGFloat)    //居底距离
-    case centerY              //垂直居中
-}
 
-public enum FYPageControlStyle {
-    
-    //坐标点
-    case point(x:FYPotionsX, y:FYPotionsY)
-    //尺寸大小
-    case size(borderWidth:CGFloat,circleWidth:CGFloat)
-    //元素之间的距离
-    case margin(_:CGFloat)
-}
-
-public enum FYPageControlType {
-    
-    /* 自定义的pageControl样式，有动画效果
-     * currentColor : 当前选中的元素背景色
-     * normalColor : 其它默认不被选中元素的背景色
-     * layout : 布局样式，根据需要可组合传入pageControl显示的位置/元素的大小/元素之间的距离等
-     */
-    case custom(currentColor:UIColor , normalColor:UIColor,layout:FYLayout)
-    
-    /* 使用系统的pageControl样式，无动画效果
-     * currentColor : 当前选中的元素背景色
-     * normalColor : 其它默认不被选中元素的背景色
-     * point : pageControl显示的位置
-     */
-    case system(currentColor:UIColor , normalColor:UIColor,point:FYPoint)
-    
-    //隐藏pageControl
-    case none
-}
-
-//MARK: - 遮罩背景相关设置
-public enum FYSliderCellMaskType {
-    
-    //半透明
-    case translucent(backgroundColor:UIColor)
-    
-    /* 渐变色
-     * backgroundColors : 渐变色按照数组元素的顺序显示
-     * offsetY : 渐变显示的高度,表示的是从底部到顶部的距离
-     */
-    case gradient(backgroundColors:[UIColor],offsetY:CGFloat)
-}
-//MARK: - 文字标题相关设置
-public enum FYTitleLabelStyle{
-    case fontSize(_:CGFloat)          //文字大小
-    case textColor(_:UIColor)         //文字颜色
-    case textInsets(_:UIEdgeInsets)   //文字内部边距
-    case labelHeight(_:CGFloat)       //标题label的高度
-}
 
 //在没有配置占位图的时候，调用此方法会绘制一个纯色背景的图充当占位图
 private func fetchTempBackgroundImage() -> UIImage {

@@ -33,7 +33,7 @@ class SevenViewController: Base2VC,FYSliderViewCustomizable {
         view.addSubview(sliderView)
         
         //显示索引的label
-        setupShowLabel()
+        view.addSubview(showLabel)
 
     }
 

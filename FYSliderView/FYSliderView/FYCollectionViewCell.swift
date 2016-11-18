@@ -9,8 +9,6 @@
 import UIKit
 import Kingfisher
 
-
-
 public class FYTextInsetsLabel:UILabel{
     public var textInsets:UIEdgeInsets = UIEdgeInsetsZero
     
@@ -28,7 +26,7 @@ public class FYCollectionViewCell: UICollectionViewCell {
     
     public var hasConfigured:Bool!
     public var textLabel:FYTextInsetsLabel!
-
+    
     public var labelHeight:CGFloat = 44
     public var colors:[UIColor]!
     public var maskHeight:CGFloat!
@@ -45,11 +43,11 @@ public class FYCollectionViewCell: UICollectionViewCell {
     }
     
     private func createView(){
-    
+        
         imageView = UIImageView()
         imageView.layer.masksToBounds = true
         contentView.addSubview(imageView)
-
+        
         textLabel = FYTextInsetsLabel()
         textLabel.textInsets = UIEdgeInsetsMake(10, 10, 10, 10)
         textLabel.textColor = UIColor.whiteColor()
@@ -57,7 +55,7 @@ public class FYCollectionViewCell: UICollectionViewCell {
         textLabel.numberOfLines = 1
         contentView.addSubview(textLabel)
     }
-
+    
     public func draw(){
         
         if let title = data.title where title.characters.count > 0{
@@ -71,7 +69,7 @@ public class FYCollectionViewCell: UICollectionViewCell {
             imageView.hidden = false
             
             //图片异步缓存库默认使用的是Kingfisher，如果使用的是SDWebImage请替换成下面注释行
-            imageView.kf_setImageWithURL(NSURL(string: url), placeholderImage: placeholderImage, optionsInfo: .None, progressBlock: nil)
+                        imageView.kf_setImageWithURL(NSURL(string: url), placeholderImage: placeholderImage, optionsInfo: .None, progressBlock: nil)
             
 //            imageView.sd_setImageWithURL(NSURL(string: url), placeholderImage: placeholderImage)
             
@@ -88,7 +86,7 @@ public class FYCollectionViewCell: UICollectionViewCell {
         textLabel.frame = CGRect(x: 0, y: self.bounds.size.height - labelHeight, width: self.bounds.size.width, height: labelHeight)
         
         imageView.frame = self.bounds
-
+        
     }
 }
 

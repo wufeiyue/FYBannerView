@@ -37,7 +37,6 @@ class TwoViewController: UIViewController,FYSliderViewCustomizable {
         
     }
 
-    
     func setupSliderView(){
         
         sliderView = FYSliderView(frame: CGRect(x: 0, y: 64, width: view.bounds.size.width, height: 200),option:self)

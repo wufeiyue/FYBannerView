@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     }
     
     func initData(){
+        
         dataSource = ["没有文字,自定义pageControl(默认)",
                       "没有文字,自定义pageControl的样式及垂直滚动",
                       "没有文字,使用系统pageControl",
@@ -27,7 +28,8 @@ class ViewController: UIViewController {
                       "有文字,使用半透明遮罩背景",
                       "有文字,自定义文字大小/内边距/颜色",
                       "实现代理方法,触发点击回调方法",
-                      "无图,纯文字垂直轮播",]
+                      "无图,纯文字垂直轮播",
+                      "动态增加轮播图的页数"]
 
         title = "FYSliderView"
     }
@@ -76,8 +78,10 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(SixViewController(), animated: true)
         case 7:
             navigationController?.pushViewController(SevenViewController(), animated: true)
-        default:
+        case 8:
             navigationController?.pushViewController(EightViewController(), animated: true)
+        default:
+            navigationController?.pushViewController(NightViewController(), animated: true)
         }
         
     }

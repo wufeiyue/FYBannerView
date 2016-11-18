@@ -16,6 +16,10 @@
 		171D13691DAB29910045F95E /* SixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D13681DAB29910045F95E /* SixViewController.swift */; };
 		171D136B1DAB3EB40045F95E /* ZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D136A1DAB3EB40045F95E /* ZeroViewController.swift */; };
 		174CFFAC1DBA023E002FE6CB /* EightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174CFFAB1DBA023E002FE6CB /* EightViewController.swift */; };
+		176ADA6B1DD5BF9600121F24 /* NightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176ADA6A1DD5BF9600121F24 /* NightViewController.swift */; };
+		176ADA6D1DD5C58E00121F24 /* FYPageControlStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176ADA6C1DD5C58E00121F24 /* FYPageControlStyle.swift */; };
+		176ADA6F1DD5C79500121F24 /* FYContentViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176ADA6E1DD5C79500121F24 /* FYContentViewStyle.swift */; };
+		176ADA711DD5C92A00121F24 /* FYDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176ADA701DD5C92A00121F24 /* FYDataModel.swift */; };
 		179223161DA1F5D000A7A512 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179223151DA1F5D000A7A512 /* AppDelegate.swift */; };
 		179223181DA1F5D000A7A512 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179223171DA1F5D000A7A512 /* ViewController.swift */; };
 		1792231B1DA1F5D000A7A512 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179223191DA1F5D000A7A512 /* Main.storyboard */; };
@@ -41,6 +45,10 @@
 		171D13681DAB29910045F95E /* SixViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixViewController.swift; sourceTree = "<group>"; };
 		171D136A1DAB3EB40045F95E /* ZeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroViewController.swift; sourceTree = "<group>"; };
 		174CFFAB1DBA023E002FE6CB /* EightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightViewController.swift; sourceTree = "<group>"; };
+		176ADA6A1DD5BF9600121F24 /* NightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightViewController.swift; sourceTree = "<group>"; };
+		176ADA6C1DD5C58E00121F24 /* FYPageControlStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYPageControlStyle.swift; sourceTree = "<group>"; };
+		176ADA6E1DD5C79500121F24 /* FYContentViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYContentViewStyle.swift; sourceTree = "<group>"; };
+		176ADA701DD5C92A00121F24 /* FYDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYDataModel.swift; sourceTree = "<group>"; };
 		179223121DA1F5D000A7A512 /* FYSliderView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYSliderView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		179223151DA1F5D000A7A512 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		179223171DA1F5D000A7A512 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 				171D13681DAB29910045F95E /* SixViewController.swift */,
 				171D13661DAB29770045F95E /* SevenViewController.swift */,
 				174CFFAB1DBA023E002FE6CB /* EightViewController.swift */,
+				176ADA6A1DD5BF9600121F24 /* NightViewController.swift */,
 			);
 			name = Example;
 			sourceTree = "<group>";
@@ -135,9 +144,12 @@
 			children = (
 				179223281DA1F62700A7A512 /* FYCollectionViewCell.swift */,
 				1792232A1DA1F65400A7A512 /* FYSliderView.swift */,
+				176ADA6E1DD5C79500121F24 /* FYContentViewStyle.swift */,
 				17F4ABAD1DA7626D002F51B1 /* FYPageControl.swift */,
+				176ADA6C1DD5C58E00121F24 /* FYPageControlStyle.swift */,
 				17E260EC1DA88F0F00F8B294 /* FYAnimatedLayer.swift */,
 				17F4ABAF1DA77C03002F51B1 /* FYSliderViewCustomizable.swift */,
+				176ADA701DD5C92A00121F24 /* FYDataModel.swift */,
 			);
 			path = FYSliderView;
 			sourceTree = "<group>";
@@ -290,7 +302,9 @@
 				171D135F1DAB26530045F95E /* TwoViewController.swift in Sources */,
 				1792232B1DA1F65400A7A512 /* FYSliderView.swift in Sources */,
 				171D13651DAB295B0045F95E /* FiveViewController.swift in Sources */,
+				176ADA6B1DD5BF9600121F24 /* NightViewController.swift in Sources */,
 				171D135D1DAB26470045F95E /* FirstViewController.swift in Sources */,
+				176ADA6D1DD5C58E00121F24 /* FYPageControlStyle.swift in Sources */,
 				17F4ABB01DA77C03002F51B1 /* FYSliderViewCustomizable.swift in Sources */,
 				17F4ABAE1DA7626D002F51B1 /* FYPageControl.swift in Sources */,
 				179223161DA1F5D000A7A512 /* AppDelegate.swift in Sources */,
@@ -299,8 +313,10 @@
 				171D13671DAB29770045F95E /* SevenViewController.swift in Sources */,
 				171D13691DAB29910045F95E /* SixViewController.swift in Sources */,
 				17B035841DAD2965008E1148 /* Base2VC.swift in Sources */,
+				176ADA711DD5C92A00121F24 /* FYDataModel.swift in Sources */,
 				171D13611DAB265B0045F95E /* ThreeViewController.swift in Sources */,
 				171D13631DAB26620045F95E /* FourViewController.swift in Sources */,
+				176ADA6F1DD5C79500121F24 /* FYContentViewStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

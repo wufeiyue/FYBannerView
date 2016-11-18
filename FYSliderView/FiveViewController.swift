@@ -10,7 +10,6 @@ import UIKit
 
 class FiveViewController: UIViewController,FYSliderViewCustomizable {
     
-    
     var sliderView:FYSliderView!
     
     override func viewDidLoad() {

@@ -44,6 +44,7 @@ class FourViewController: UIViewController,FYSliderViewCustomizable {
         view.addSubview(sliderView)
         
     }
+    
     //MARK: - FYSliderView配置信息
     var controlType: FYPageControlType{
         return .custom(currentColor:UIColor(red: 1, green: 1, blue: 1, alpha: 1) , normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),layout:[.point(x:.right(10), y:.bottom(13))])

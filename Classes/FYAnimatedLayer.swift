@@ -23,7 +23,7 @@ public class FYAnimatedLayer:CAShapeLayer{
         super.init()
         createView()
     }
-
+    
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -37,13 +37,49 @@ public class FYAnimatedLayer:CAShapeLayer{
         self.lineWidth = border
         self.strokeStart = 0
         self.strokeEnd = 1
-    
+        
         let circle = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: width, height: width))
         self.path = circle.CGPath
     }
     
     public func startAnimation(){
+        if border >= width / 2 {
+            changeColorStart()
+        }else{
+            animationStart()
+        }
+    }
+    
+    public func stopAnimation(){
+        if border >= width / 2 {
+            changeColorStop()
+        }else{
+            animationStop()
+        }
+    }
+    ///改变为选中颜色
+    private func changeColorStart(){
+        let color = CABasicAnimation.init(keyPath: "strokeColor")
+        color.fromValue = normal_color
+        color.toValue = selected_color
+        color.removedOnCompletion = false
+        color.fillMode = kCAFillModeForwards
+        addAnimation(color, forKey: "color-start")
         
+    }
+    ///改变为默认颜色
+    private func changeColorStop(){
+        let color = CABasicAnimation.init(keyPath: "strokeColor")
+        color.fromValue = selected_color
+        color.toValue = normal_color
+        color.removedOnCompletion = false
+        color.fillMode = kCAFillModeForwards
+        addAnimation(color, forKey: "color-stop")
+        
+    }
+    
+    ///开启动画
+    private func animationStart(){
         let fill_color = CABasicAnimation.init(keyPath: "fillColor")
         fill_color.fromValue = UIColor.clearColor().CGColor
         fill_color.toValue = selected_color
@@ -57,7 +93,7 @@ public class FYAnimatedLayer:CAShapeLayer{
         zoomSize.toValue = NSValue(CATransform3D: CATransform3DMakeScale(1.4, 1.4, 1))
         
         let zoom = CAAnimationGroup()
-        zoom.animations = [fill_color,zoomSize,stroke_color]
+        zoom.animations = [fill_color]
         zoom.repeatCount = 1
         zoom.removedOnCompletion = false
         zoom.fillMode = kCAFillModeForwards
@@ -65,24 +101,23 @@ public class FYAnimatedLayer:CAShapeLayer{
         zoom.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut )
         addAnimation(zoom, forKey: "transform-start")
     }
-    
-    public func stopAnimation(){
-        
+    ///停止动画
+    private func animationStop(){
         let fill_color = CABasicAnimation.init(keyPath: "fillColor")
         fill_color.fromValue = selected_color
         fill_color.toValue = UIColor.clearColor().CGColor
-
+        
         let stroke_color = CABasicAnimation.init(keyPath: "strokeColor")
         stroke_color.fromValue = UIColor.clearColor().CGColor
         stroke_color.toValue = normal_color
-
+        
         
         let zoomSize = CAKeyframeAnimation.init(keyPath: "transform")
         zoomSize.values = [
-                       NSValue(CATransform3D: CATransform3DMakeScale(1.4, 1.4, 1)),
-                       NSValue(CATransform3D: CATransform3DMakeScale(0.8, 0.8, 1)),
-                       NSValue(CATransform3D: CATransform3DMakeScale(1.0, 1.0, 1))
-                      ]
+            NSValue(CATransform3D: CATransform3DMakeScale(1.4, 1.4, 1)),
+            NSValue(CATransform3D: CATransform3DMakeScale(0.8, 0.8, 1)),
+            NSValue(CATransform3D: CATransform3DMakeScale(1.0, 1.0, 1))
+        ]
         
         let zoom = CAAnimationGroup()
         zoom.animations = [fill_color,zoomSize,stroke_color]

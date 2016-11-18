@@ -9,12 +9,18 @@
 import UIKit
 
 public class FYPageControl: UIControl {
-
+    
+    public var showAnimation:Bool!
     
     public var numberOfPages:Int?{
-        willSet{
-            guard numberOfPages != nil && numberOfPages != newValue else{return}
-            defaultActiveStatus = false
+        didSet{
+            guard let number = numberOfPages where number != oldValue else{return}
+    
+            updateDots()
+            
+            if defaultActiveStatus {
+                changeActivity(true, index: 0) //默认第一个显示
+            }
         }
     }
     public var currentPage:Int?{
@@ -33,7 +39,7 @@ public class FYPageControl: UIControl {
             }
         }
     }
-
+    
     public var margin:CGFloat!
     public var dotWidth:CGFloat!
     public var borderWidth:CGFloat!
@@ -50,16 +56,16 @@ public class FYPageControl: UIControl {
         self.hidesForSinglePage = hidesForSinglePage
         
         super.init(frame: CGRect.zero)
-    
+        
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func updateDots(){
-        guard numberOfPages != nil else{return}
-        for i in 0..<numberOfPages! {
+    private func updateDots(){
+        
+        for i in 0 ..< numberOfPages! {
             
             let dot:FYAnimatedLayer!
             
@@ -68,18 +74,18 @@ public class FYPageControl: UIControl {
             }else{
                 dot = generateDotView()
             }
-
+            
             updateDotFrame({ (point) in
                 
                 dot.position = point
                 
                 }, index: CGFloat(i))
         }
-        
-        if defaultActiveStatus {
-            changeActivity(true, index: 0) //默认第一个显示
+        //删除pagecontrol重新布局
+        if numberOfPages < dots.count {
+            resetDotViews()
         }
-        
+
         hideForSinglePage()
     }
     
@@ -109,7 +115,10 @@ public class FYPageControl: UIControl {
     
     private func generateDotView() -> FYAnimatedLayer {
         
-        let dotLayer = FYAnimatedLayer(currentColor: currentPageIndicatorTintColor, normalColor: pageIndicatorTintColor, border: borderWidth, width: dotWidth - borderWidth)
+        let dotLayer = FYAnimatedLayer(currentColor: currentPageIndicatorTintColor,
+                                       normalColor: pageIndicatorTintColor,
+                                       border: borderWidth,
+                                       width: dotWidth - borderWidth)
         
         layer.addSublayer(dotLayer)
         dots.append(dotLayer)
@@ -118,13 +127,14 @@ public class FYPageControl: UIControl {
     }
     
     private func changeActivity(active:Bool, index:Int){
+        guard index >= 0 && index < dots.count else{return}
         
-        let dot = dots.get(index)
+        let dot = dots[index]
         
         if active {
-            dot?.startAnimation()
+            dot.startAnimation()
         }else{
-            dot?.stopAnimation()
+            dot.stopAnimation()
         }
     }
     
@@ -139,13 +149,4 @@ public class FYPageControl: UIControl {
         bounds.size = sizeForNumberOfPages(numberOfPages ?? 0)
     }
     
-
-
-}
-
-
-private extension Array {
-    func get(index: Int) -> Element? {
-        return index >= 0 && index < count ? self[index] : nil
-    }
 }

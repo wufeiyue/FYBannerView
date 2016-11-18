@@ -19,54 +19,35 @@ public typealias FYLayout = [FYPageControlStyle]
 public typealias FYPoint = (x:FYPotionsX, y:FYPotionsY)
 public typealias FYTitleStyle = [FYTitleLabelStyle]
 
-public struct FYImageObject {
-    public var url:String?
-    public var title:String?
-    public init(url:String?, title:String?){
-        self.url = url
-        self.title = title
-    }
-}
-
 public class FYSliderView: UIView {
-
     public private(set) weak var option:FYSliderViewCustomizable!
+    //pageControl的宽度，配合自定义FYTitleStyle 避免标题文字过多遮盖住pageControl
+    public private(set) var pageControlWidth:CGFloat!
     public weak var delegate:FYSliderViewDelegate?
     public var imageObjectGroup:[FYImageObject]! {
         
-        willSet{
-            
-            guard imageObjectGroup?.first?.title != newValue.first?.title && imageObjectGroup?.count != newValue.count else{return}
-            
-            totalImageCount = option.infiniteLoop == true ? newValue.count * 2 : newValue.count
-            
-            if newValue.count == 0 {
-                self.backgroundImage.image = option.placeholderImage
-                self.collectionView.scrollEnabled = false
-            }else{
-                self.backgroundImage.removeFromSuperview()
-                self.collectionView.scrollEnabled = true
-                
-                if let control = pageControl as? FYPageControl {
-                    control.numberOfPages = newValue.count
-                    control.updateDots()
-                }
-                
-                if let control = pageControl as? UIPageControl {
-                    control.numberOfPages = newValue.count
-                }
-            }
-            
-        }
-        
         didSet{
+
+            guard let group = imageObjectGroup where group.count > 0 else{ return }
             
-            if option.autoScroll && imageObjectGroup.count > 1 && oldValue == nil{
-                collectionView.reloadData()
-                self.invalidateTimer()
+            totalImageCount = option.infiniteLoop == true && group.count != 1 ? group.count * 2 : group.count
+            
+            self.invalidateTimer()
+            
+            if option.autoScroll && group.count > 1 && oldValue != nil{
                 self.setupTimer()
             }
-
+            
+            collectionView.reloadData()
+            
+            if let control = pageControl as? FYPageControl {
+                control.numberOfPages = group.count
+            }
+            
+            if let control = pageControl as? UIPageControl {
+                control.numberOfPages = group.count
+            }
+            
         }
         
         
@@ -79,15 +60,10 @@ public class FYSliderView: UIView {
     private var tempIndexOnPageControl:Int = Int.max
     private var collectionView:UICollectionView!
     private lazy var flowLayout:UICollectionViewFlowLayout = {
-       let flowLayout = UICollectionViewFlowLayout()
+        let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         return flowLayout
-    }()
-    private lazy var backgroundImage:UIImageView = {
-        let bgImageView = UIImageView()
-        bgImageView.contentMode = .ScaleAspectFill
-        return bgImageView
     }()
     
     public init(frame: CGRect,option:FYSliderViewCustomizable) {
@@ -95,7 +71,7 @@ public class FYSliderView: UIView {
         super.init(frame: frame)
         setupCollectionView()
         setupPageControl()
-        addChildView() 
+        addChildView()
     }
     
     override public func awakeFromNib() {
@@ -109,17 +85,16 @@ public class FYSliderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    
     private func addChildView(){
         addSubview(collectionView)
-        addSubview(backgroundImage)
         if let pageControl = pageControl {
             addSubview(pageControl)
         }
     }
     
     private func setupCollectionView(){
-    
+        
         let collection = UICollectionView(frame:self.bounds,collectionViewLayout: self.flowLayout)
         collection.backgroundColor = UIColor.clearColor()
         collection.pagingEnabled = true
@@ -129,12 +104,12 @@ public class FYSliderView: UIView {
         collection.delegate = self
         collection.scrollsToTop = false
         collection.directionalLockEnabled = true
-        
+        collection.scrollEnabled = true
         collection.registerClass(FYGradientCell.self, forCellWithReuseIdentifier: "FYGradientCellIdentifier")
         collection.registerClass(FYTranslucentCell.self, forCellWithReuseIdentifier: "FYTranslucentCellIdentifier")
         self.collectionView = collection
     }
-
+    
     private func setupPageControl(){
         
         if pageControl != nil {
@@ -149,7 +124,7 @@ public class FYSliderView: UIView {
             control.currentPageIndicatorTintColor = current
             control.hidesForSinglePage = option.hidesForSinglePage
             self.pageControl = control
-
+            
             let tempStyle = FYPageControlStyle.point(x: point.x, y: point.y)
             self.pageControlLayout = FYLayout()
             self.pageControlLayout?.append(tempStyle)
@@ -202,7 +177,9 @@ public class FYSliderView: UIView {
     }
     
     private func pageControlIndexWithCurrentCellIndex(index:Int)-> Int{
-        return index % imageObjectGroup.count
+        let num = imageObjectGroup.count
+        guard num != 0 else{ return 0 }
+        return index % num
     }
     
     private func invalidateTimer(){
@@ -262,7 +239,7 @@ public class FYSliderView: UIView {
         }
         
     }
-
+    
     private func scrollToIndex(index:Int,animated:Bool){
         if totalImageCount != 0 && imageObjectGroup != nil &&  collectionView.visibleCells().count > 0{
             collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .None, animated: animated)
@@ -273,15 +250,15 @@ public class FYSliderView: UIView {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-
+        
         let Height  = bounds.size.height
         let Width   = bounds.size.width
         let CenterX = center.x
         let CenterY = center.y
         flowLayout.itemSize = frame.size
         flowLayout.scrollDirection = option.scrollDirection
-    
-        backgroundImage.frame = bounds
+        
+        
         collectionView.frame = bounds
         collectionView.contentInset = UIEdgeInsetsZero
         
@@ -295,20 +272,22 @@ public class FYSliderView: UIView {
             if let systemControl = pageControl as? UIPageControl {
                 if imageObjectGroup != nil{
                     width = systemControl.sizeForNumberOfPages(imageObjectGroup.count).width
+                    pageControlWidth = width
                 }
                 height = systemControl.subviews.first?.frame.size.height ?? 0
                 systemControl.frame.size = CGSize(width: width, height: height)
                 
             }else if let customControl = pageControl as? FYPageControl {
- 
+                
                 height = customControl.dotWidth
                 
                 if imageObjectGroup != nil{
                     width = customControl.sizeForNumberOfPages(imageObjectGroup.count).width
+                    pageControlWidth = width
                 }
                 
                 customControl.frame.size = CGSize(width:width, height:height)
-
+                
             }
             
             
@@ -334,7 +313,7 @@ public class FYSliderView: UIView {
                 }
                 
             }
-
+            
             pageControl?.frame.origin = CGPoint(x: offsetX, y: offsetY)
         }
         
@@ -344,13 +323,13 @@ public class FYSliderView: UIView {
         
         
     }
-
+    
     deinit{
         print("sliderView被释放")
         collectionView.dataSource = nil
         collectionView.delegate = nil
     }
- 
+    
 }
 
 extension FYSliderView:UICollectionViewDelegate,UICollectionViewDataSource{
@@ -367,7 +346,7 @@ extension FYSliderView:UICollectionViewDelegate,UICollectionViewDataSource{
         case .translucent(let backgroundColor):
             
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("FYTranslucentCellIdentifier", forIndexPath: indexPath) as? FYTranslucentCell
-          
+            
             cell.colors = [backgroundColor]
             
             break
@@ -380,7 +359,7 @@ extension FYSliderView:UICollectionViewDelegate,UICollectionViewDataSource{
             
             break
         }
-
+        
         //配置数据
         let indexOnPageControl = pageControlIndexWithCurrentCellIndex(indexPath.item)
         let imageModel = imageObjectGroup[indexOnPageControl]
@@ -438,8 +417,8 @@ extension FYSliderView:UIScrollViewDelegate{
                 }
             }
         }
-      
-
+        
+        
     }
     
     public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -451,7 +430,7 @@ extension FYSliderView:UIScrollViewDelegate{
     public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         
         self.scrollViewDidEndScrollingAnimation(self.collectionView)
-       
+        
     }
     
     public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -462,8 +441,10 @@ extension FYSliderView:UIScrollViewDelegate{
     
     public func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        guard scrollView.isEqual(self.collectionView) == true && imageObjectGroup != nil else{return}
-    
+        guard let group = imageObjectGroup where group.count > 0 else{return}
+        guard scrollView.isEqual(self.collectionView) else{return}
+        
+        
         let itemIndex = currentIndex()
         let indexOnPageControl = pageControlIndexWithCurrentCellIndex(itemIndex)
         guard self.tempIndexOnPageControl != indexOnPageControl else{
@@ -477,9 +458,9 @@ extension FYSliderView:UIScrollViewDelegate{
         if let control = pageControl as? UIPageControl {
             control.currentPage = indexOnPageControl
         }
- 
+        
         self.tempIndexOnPageControl = indexOnPageControl
-    
+        
     }
     
 }
@@ -504,7 +485,7 @@ private func === (lhs: FYTitleLabelStyle, rhs: FYTitleLabelStyle) -> Bool {
 }
 
 extension CollectionType where Generator.Element == FYPageControlStyle {
-
+    
     func fy_equalAssociatedValue(target: Generator.Element) -> Generator.Element? {
         return indexOf { $0 === target }.flatMap { self[$0] }
     }
