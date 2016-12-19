@@ -44,7 +44,10 @@ class FirstViewController: UIViewController,FYSliderViewCustomizable {
     }
     //MARK: - FYSliderView配置信息
     var controlType: FYPageControlType{
-        return .custom(currentColor:UIColor(red: 1, green: 1, blue: 1, alpha: 1) , normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),layout:[.size(borderWidth: 3,circleWidth: 20),.point(x:.left(10), y:.top(20))])
+        return .custom(currentColor:UIColor(red: 1, green: 1, blue: 1, alpha: 1) ,
+                       normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
+                       layout:[.size(borderWidth: 3,circleWidth: 20),.point(x:.left(10), y:.top(20))],
+                       animationType:.zoom)
     }
     
     var scrollDirection: UICollectionViewScrollDirection{

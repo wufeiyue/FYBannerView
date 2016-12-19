@@ -13,11 +13,16 @@
 
 目录说明
 ```
-├── FYSliderView  ＃核心库文件夹，如果不使用 CocoaPods 集成，请直接将这个文件夹拖拽带你的项目中
+├── FYSliderView  ＃核心库文件夹，如果不使用 CocoaPods 集成，请直接将这个文件夹拖拽到你的项目中
+	└── FYCollectionViewCell.swift 内容视图，包括遮罩和半透明样式图层，图片展示，文字标题展示
 	└── FYSliderView.swift 核心类
-	└── FYPageControl.swift 自定义的PageControl
-	└── FYAnimatedLayer.swift 组成pageControl元素的图层
+	└── FYContentViewStyle.swift 内容视图的配置
+	└── FYPageControl.swift 自定义的PageControl类
+	└── FYPageControlStyle.swift  pageControl的样式配置
+	└── FYAnimatedLayer.swift 组成自定义pageControl元素的图层
 	└── FYSliderViewCustomizable.swift 参数配置
+	└── FYDataModel.swift 数据模型
+	
 ```
 ##使用FYSliderView
 - - -
@@ -194,4 +199,8 @@ var titleStyle:FYTitleStyle{
 }
 ```
 
+**版本更新：**
+- 1.0.8 
+- 1.0.7 修复后台实时添加/删除轮播图数据，APP刷新数据源没有即时改变轮播图展示
+- 1.0.6 增加pageControlWidth属性，配合titleStyle属性设置，避免文字视图将pageControl覆盖掉
 > 有任何疑问，欢迎加入QQ群:428463531讨论及分享

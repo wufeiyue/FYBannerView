@@ -14,16 +14,16 @@ class NightViewController: Base1VC,FYSliderViewCustomizable {
     var sliderView:FYSliderView!
     var contentObjectFlag:Int = 0 {
         didSet{
-            guard contentObjectFlag <= dataSource.count && contentObjectFlag >= 0 else{return}
-            if contentObjectFlag > oldValue {
-                print("增加为:\(oldValue)")
-                let contentObject = dataSource[oldValue]
+            
+            if contentObjectFlag >= oldValue{
+                print("增加\n")
+                let contentObject = dataSource[contentObjectFlag - 1]
                 sliderView.imageObjectGroup.append(contentObject)
                 
                 
-            }else if contentObjectFlag < dataSource.count{
-                print("减少为:\(oldValue)")
-                sliderView.imageObjectGroup.removeFirst()
+            }else if oldValue > contentObjectFlag{
+                print("减少\n")
+                sliderView.imageObjectGroup.removeLast()
             }
             
         }
@@ -62,11 +62,17 @@ class NightViewController: Base1VC,FYSliderViewCustomizable {
     }
     
     func addImageTapped(){
-        contentObjectFlag += 1
+        
+        if contentObjectFlag < dataSource.count {
+            contentObjectFlag += 1
+        }
     }
     
     func delegateImageTapped(){
-        contentObjectFlag -= 1
+        
+        if contentObjectFlag > 0 {
+            contentObjectFlag -= 1
+        }
     }
     
     deinit{

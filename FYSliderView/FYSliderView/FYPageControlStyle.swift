@@ -38,7 +38,7 @@ public enum FYPageControlType {
      * normalColor : 其它默认不被选中元素的背景色
      * layout : 布局样式，根据需要可组合传入pageControl显示的位置/元素的大小/元素之间的距离等
      */
-    case custom(currentColor:UIColor , normalColor:UIColor,layout:FYLayout)
+    case custom(currentColor:UIColor , normalColor:UIColor,layout:FYLayout, animationType:FYPageControlAnimationType)
     
     /* 使用系统的pageControl样式，无动画效果
      * currentColor : 当前选中的元素背景色
@@ -49,4 +49,16 @@ public enum FYPageControlType {
     
     //隐藏pageControl
     case none
+}
+
+///高级用法
+
+public enum FYPageControlAnimationType {
+    case countdown //倒计时
+    case zoom //缩放(默认)
+    case transition //过渡动画
+}
+
+public protocol FYPageControlAnimationLayerDelegate {
+    var type:FYPageControlAnimationType {get}
 }

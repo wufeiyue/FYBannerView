@@ -31,7 +31,7 @@ class ZeroViewController: Base1VC,FYSliderViewCustomizable {
         view.addSubview(sliderView)
     }
     
-        //MARK: - FYSliderView配置信息
+    //MARK: - FYSliderView配置信息
     var scrollTimeInterval: NSTimeInterval{
         return 4
     }

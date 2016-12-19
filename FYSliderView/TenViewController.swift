@@ -1,21 +1,20 @@
 //
-//  SixViewController.swift
+//  TenViewController.swift
 //  FYSliderView
 //
-//  Created by 武飞跃 on 16/10/10.
+//  Created by 武飞跃 on 16/11/29.
 //  Copyright © 2016年 武飞跃. All rights reserved.
 //
 
 import UIKit
 
-class SixViewController: Base2VC,FYSliderViewCustomizable {
-    
+class TenViewController: Base1VC,FYSliderViewCustomizable {
     
     var sliderView:FYSliderView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //获取网络数据
         getData { (data) in
             let dic = try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
@@ -29,28 +28,27 @@ class SixViewController: Base2VC,FYSliderViewCustomizable {
         //初始化轮播图
         sliderView = FYSliderView(frame: CGRect(x: 0, y: 64, width: view.bounds.size.width, height: 200),option:self)
         view.addSubview(sliderView)
-        
     }
     
     //MARK: - FYSliderView配置信息
-    var titleStyle: FYTitleStyle{
-        return [.textColor(UIColor.yellowColor()),.textInsets(UIEdgeInsetsMake(0, 30, 0, 180))]
+    var scrollTimeInterval: NSTimeInterval{
+        return 4
     }
     
     var controlType: FYPageControlType{
-        return .custom(currentColor:UIColor(red: 1, green: 1, blue: 1, alpha: 1) ,
-                       normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
-                       layout:[.point(x:.right(10), y:.bottom(16))],animationType:.zoom)
+        return .custom(currentColor:UIColor.redColor() , normalColor:UIColor.whiteColor(),layout:[.point(x:.centerX, y:.centerY)], animationType:.countdown)
     }
     
+
     deinit{
-        print("SixViewController")
+        print("TenViewController")
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
-    
+
 }

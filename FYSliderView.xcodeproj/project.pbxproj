@@ -32,6 +32,7 @@
 		17E260ED1DA88F0F00F8B294 /* FYAnimatedLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E260EC1DA88F0F00F8B294 /* FYAnimatedLayer.swift */; };
 		17F4ABAE1DA7626D002F51B1 /* FYPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4ABAD1DA7626D002F51B1 /* FYPageControl.swift */; };
 		17F4ABB01DA77C03002F51B1 /* FYSliderViewCustomizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4ABAF1DA77C03002F51B1 /* FYSliderViewCustomizable.swift */; };
+		17FEB0981DED18F000812654 /* TenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEB0971DED18F000812654 /* TenViewController.swift */; };
 		6D7F4A831CBBD68D88614BC6 /* Pods_FYSliderView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6841795C48BA0775D44BB719 /* Pods_FYSliderView.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		17E260EC1DA88F0F00F8B294 /* FYAnimatedLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYAnimatedLayer.swift; sourceTree = "<group>"; };
 		17F4ABAD1DA7626D002F51B1 /* FYPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYPageControl.swift; sourceTree = "<group>"; };
 		17F4ABAF1DA77C03002F51B1 /* FYSliderViewCustomizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYSliderViewCustomizable.swift; sourceTree = "<group>"; };
+		17FEB0971DED18F000812654 /* TenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenViewController.swift; sourceTree = "<group>"; };
 		6841795C48BA0775D44BB719 /* Pods_FYSliderView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYSliderView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974BF91BAFFC1ED3D4310F52 /* Pods-FYSliderView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYSliderView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FYSliderView/Pods-FYSliderView.debug.xcconfig"; sourceTree = "<group>"; };
 		FE70E4A0185A5E229F1FA093 /* Pods-FYSliderView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYSliderView.release.xcconfig"; path = "Pods/Target Support Files/Pods-FYSliderView/Pods-FYSliderView.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				171D13661DAB29770045F95E /* SevenViewController.swift */,
 				174CFFAB1DBA023E002FE6CB /* EightViewController.swift */,
 				176ADA6A1DD5BF9600121F24 /* NightViewController.swift */,
+				17FEB0971DED18F000812654 /* TenViewController.swift */,
 			);
 			name = Example;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				17B035841DAD2965008E1148 /* Base2VC.swift in Sources */,
 				176ADA711DD5C92A00121F24 /* FYDataModel.swift in Sources */,
 				171D13611DAB265B0045F95E /* ThreeViewController.swift in Sources */,
+				17FEB0981DED18F000812654 /* TenViewController.swift in Sources */,
 				171D13631DAB26620045F95E /* FourViewController.swift in Sources */,
 				176ADA6F1DD5C79500121F24 /* FYContentViewStyle.swift in Sources */,
 			);

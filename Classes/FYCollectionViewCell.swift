@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import SDWebImage
 import Kingfisher
 
 public class FYTextInsetsLabel:UILabel{

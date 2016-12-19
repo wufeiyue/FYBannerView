@@ -45,7 +45,9 @@ class TwoViewController: UIViewController,FYSliderViewCustomizable {
     }
     //MARK: - FYSliderView配置信息
     var controlType: FYPageControlType{
-        return .system(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1) , normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),point:(x:.centerX, y:.bottom(10)))
+        return .system(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1) ,
+                       normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
+                       point:(x:.centerX, y:.bottom(13)))
     }
     
     deinit{

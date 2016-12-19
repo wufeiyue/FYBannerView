@@ -47,7 +47,10 @@ class FiveViewController: UIViewController,FYSliderViewCustomizable {
         return .translucent(backgroundColor:UIColor(red: 0, green: 0, blue: 0, alpha: 0.5))
     }
     var controlType: FYPageControlType{
-        return .custom(currentColor:UIColor(red: 1, green: 1, blue: 1, alpha: 1) , normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),layout:[.point(x:.right(10), y:.bottom(13))])
+        return .custom(currentColor:UIColor(red: 1, green: 1, blue: 1, alpha: 1) ,
+                       normalColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.8),
+                       layout:[.point(x:.right(10), y:.bottom(16))],
+                       animationType:.zoom)
     }
     
     deinit{

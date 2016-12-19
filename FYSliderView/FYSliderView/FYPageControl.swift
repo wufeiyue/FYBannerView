@@ -10,6 +10,8 @@ import UIKit
 
 public class FYPageControl: UIControl {
     
+    public var animationDuration:NSTimeInterval!
+    
     public var showAnimation:Bool!
     
     public var numberOfPages:Int?{
@@ -20,7 +22,9 @@ public class FYPageControl: UIControl {
             
             if defaultActiveStatus {
                 changeActivity(true, index: 0) //默认第一个显示
+                defaultActiveStatus = false
             }
+            
         }
     }
     public var currentPage:Int?{
@@ -42,7 +46,8 @@ public class FYPageControl: UIControl {
     
     public var margin:CGFloat!
     public var dotWidth:CGFloat!
-    public var borderWidth:CGFloat!
+    public var dotBorderWidth:CGFloat!
+    public var animationType:FYPageControlAnimationType!
     
     public let hidesForSinglePage:Bool
     public let pageIndicatorTintColor: UIColor
@@ -75,11 +80,7 @@ public class FYPageControl: UIControl {
                 dot = generateDotView()
             }
             
-            updateDotFrame({ (point) in
-                
-                dot.position = point
-                
-                }, index: CGFloat(i))
+            dot.position = updateDotPosition(CGFloat(i))
         }
         //删除pagecontrol重新布局
         if numberOfPages < dots.count {
@@ -89,11 +90,10 @@ public class FYPageControl: UIControl {
         hideForSinglePage()
     }
     
-    private func updateDotFrame(closure:(CGPoint) -> Void, index:CGFloat){
-        let x = (dotWidth + (margin ?? 10)) * index + dotWidth / 2
-        let y = bounds.size.height / 2
-        let point = CGPoint(x:x ,y:y)
-        closure(point)
+    //更新pageControl元素坐标点
+    private func updateDotPosition(index:CGFloat) -> CGPoint{
+        let x = (dotWidth + dotBorderWidth * 2 + (margin ?? 10)) * index + dotWidth / 2 + dotBorderWidth
+        return CGPoint(x:x ,y:dotWidth/2 + dotBorderWidth)
     }
     
     //只有一个就隐藏pageControl
@@ -117,10 +117,16 @@ public class FYPageControl: UIControl {
         
         let dotLayer = FYAnimatedLayer(currentColor: currentPageIndicatorTintColor,
                                        normalColor: pageIndicatorTintColor,
-                                       border: borderWidth,
-                                       width: dotWidth - borderWidth)
-        
+                                       border: dotBorderWidth,
+                                       width: dotWidth)
+        dotLayer.animationType = animationType
+        dotLayer.animationDuration = animationDuration
         layer.addSublayer(dotLayer)
+        
+//        if dots.count == 0 {
+//            dotLayer.startAnimation()
+//        }
+        dotLayer.stopAnimation()
         dots.append(dotLayer)
         
         return dotLayer
@@ -138,13 +144,19 @@ public class FYPageControl: UIControl {
         }
     }
     
+//    public func animationType(with delegate:protocol<FYPageControlAnimationLayerDelegate>) -> Void{
+//        
+//    }
+    
     public func sizeForNumberOfPages(pageCount: Int) -> CGSize {
-        return CGSize(width: (dotWidth + (margin ?? 10)) * CGFloat(pageCount) - (margin ?? 10), height:dotWidth)
+        let margin = self.margin ?? 10
+        let width = (dotWidth + margin + dotBorderWidth * 2) * CGFloat(pageCount) - margin
+        let height = dotWidth + dotBorderWidth * 2
+        return CGSize(width: width, height: height)
     }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        
         bounds.origin = CGPoint.zero
         bounds.size = sizeForNumberOfPages(numberOfPages ?? 0)
     }

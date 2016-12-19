@@ -10,7 +10,18 @@ import UIKit
 
 class Base2VC: UIViewController {
     
-    var showLabel:UILabel!
+    //显示label 详情见SevenViewController
+    lazy var showLabel:UILabel = {[unowned self] in
+        $0.frame.size = CGSize(width: 100, height: 40)
+        $0.center = self.view.center
+        $0.textColor = UIColor.whiteColor()
+        $0.backgroundColor = UIColor.grayColor()
+        $0.font = UIFont.systemFontOfSize(18)
+        $0.textAlignment = .Center
+        $0.text = "显示值"
+        return $0
+        }(UILabel())
+    
     var textString:String!{
         willSet{
             showLabel.text = newValue
@@ -37,18 +48,6 @@ class Base2VC: UIViewController {
         
     }
     
-    //显示当前页面的索引label -->查看 SevenViewController
-    func setupShowLabel(){
-        showLabel = UILabel()
-        showLabel.frame.size = CGSize(width: 100, height: 40)
-        showLabel.center = view.center
-        showLabel.textColor = UIColor.whiteColor()
-        showLabel.backgroundColor = UIColor.grayColor()
-        showLabel.font = UIFont.systemFontOfSize(18)
-        showLabel.textAlignment = .Center
-        showLabel.text = "显示值"
-        view.addSubview(showLabel)
-    }
     
 
     override func didReceiveMemoryWarning() {

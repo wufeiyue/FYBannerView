@@ -39,6 +39,7 @@ public protocol FYSliderViewCustomizable:class {
     
     //文字样式
     var titleStyle:FYTitleStyle {get}
+
     
 }
 
@@ -56,7 +57,8 @@ public extension FYSliderViewCustomizable{
         
         return .custom(currentColor: UIColor.whiteColor(),
                        normalColor: UIColor(red: 1, green: 1, blue: 1, alpha:0.8),
-                       layout: [.point(x:.centerX, y:.bottom(13)), .size(borderWidth: 2, circleWidth: 8)])
+                       layout: [.point(x:.centerX, y:.bottom(13)), .size(borderWidth: 2, circleWidth: 4)],
+                       animationType:.zoom)
         
     }
     var scrollTimeInterval:NSTimeInterval{
@@ -84,8 +86,6 @@ public extension FYSliderViewCustomizable{
     }
     
 }
-
-
 
 //在没有配置占位图的时候，调用此方法会绘制一个纯色背景的图充当占位图
 private func fetchTempBackgroundImage() -> UIImage {
