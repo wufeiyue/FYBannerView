@@ -2,8 +2,8 @@
 //  FYSliderViewCustomizable.swift
 //  FYSliderView
 //
-//  Created by 武飞跃 on 16/10/7.
-//  Copyright © 2016年 武飞跃. All rights reserved.
+//  Created by 武飞跃 on 16/10/3.
+//  Copyright © 2017年 武飞跃. All rights reserved.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ public protocol FYSliderViewCustomizable:class {
     var autoScroll:Bool {get}
     
     //默认滚动间隔时间
-    var scrollTimeInterval:NSTimeInterval {get}
+    var scrollTimeInterval:TimeInterval {get}
     
     //滚动方向
     var scrollDirection:UICollectionViewScrollDirection {get}
@@ -39,7 +39,7 @@ public protocol FYSliderViewCustomizable:class {
     
     //文字样式
     var titleStyle:FYTitleStyle {get}
-
+    
     
 }
 
@@ -55,20 +55,20 @@ public extension FYSliderViewCustomizable{
     }
     var controlType:FYPageControlType{
         
-        return .custom(currentColor: UIColor.whiteColor(),
+        return .custom(currentColor: UIColor.white,
                        normalColor: UIColor(red: 1, green: 1, blue: 1, alpha:0.8),
                        layout: [.point(x:.centerX, y:.bottom(13)), .size(borderWidth: 2, circleWidth: 4)],
                        animationType:.zoom)
         
     }
-    var scrollTimeInterval:NSTimeInterval{
+    var scrollTimeInterval:TimeInterval{
         return 4
     }
     var scrollDirection:UICollectionViewScrollDirection{
-        return .Horizontal
+        return .horizontal
     }
     var imageContentMode:UIViewContentMode{
-        return .ScaleAspectFill
+        return .scaleAspectFill
     }
     
     var hidesForSinglePage:Bool{
@@ -77,7 +77,7 @@ public extension FYSliderViewCustomizable{
     
     var maskType:FYSliderCellMaskType{
         return .gradient(backgroundColors: [UIColor(red: 0, green: 0, blue: 0, alpha: 0),
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)],
+                                            UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)],
                          offsetY: 100)
     }
     
@@ -92,9 +92,9 @@ private func fetchTempBackgroundImage() -> UIImage {
     let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
     UIGraphicsBeginImageContextWithOptions(rect.size, true, 0)
     let context = UIGraphicsGetCurrentContext()
-    UIColor.groupTableViewBackgroundColor().set()
-    CGContextFillRect(context, rect)
+    UIColor.groupTableViewBackground.set()
+    context!.fill(rect)
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
-    return image
+    return image!
 }

@@ -2,26 +2,26 @@
 //  FYPageControl.swift
 //  FYSliderView
 //
-//  Created by 武飞跃 on 16/10/7.
-//  Copyright © 2016年 武飞跃. All rights reserved.
+//  Created by 武飞跃 on 16/10/3.
+//  Copyright © 2017年 武飞跃. All rights reserved.
 //
 
 import UIKit
 
 public class FYPageControl: UIControl {
     
-    public var animationDuration:NSTimeInterval!
+    public var animationDuration:TimeInterval!
     
     public var showAnimation:Bool!
     
     public var numberOfPages:Int?{
         didSet{
-            guard let number = numberOfPages where number != oldValue else{return}
-    
+            guard let number = numberOfPages, number != oldValue else{return}
+            
             updateDots()
             
             if defaultActiveStatus {
-                changeActivity(true, index: 0) //默认第一个显示
+                changeActivity(active: true, index: 0) //默认第一个显示
                 defaultActiveStatus = false
             }
             
@@ -30,16 +30,16 @@ public class FYPageControl: UIControl {
     public var currentPage:Int?{
         willSet{
             if let value = newValue {
-                guard value < numberOfPages else{
+                guard value < numberOfPages! else{
                     fatalError("当前的页数已经超过总页数，会造成数组越界")
                 }
-                self.changeActivity(true, index: value)
+                self.changeActivity(active: true, index: value)
             }
         }
         
         didSet{
             if let value = oldValue {
-                self.changeActivity(false, index: value)
+                self.changeActivity(active: false, index: value)
             }
         }
     }
@@ -80,13 +80,13 @@ public class FYPageControl: UIControl {
                 dot = generateDotView()
             }
             
-            dot.position = updateDotPosition(CGFloat(i))
+            dot.position = updateDotPosition(index: CGFloat(i))
         }
         //删除pagecontrol重新布局
-        if numberOfPages < dots.count {
+        if numberOfPages! < dots.count {
             resetDotViews()
         }
-
+        
         hideForSinglePage()
     }
     
@@ -99,9 +99,9 @@ public class FYPageControl: UIControl {
     //只有一个就隐藏pageControl
     private func hideForSinglePage(){
         if dots.count == 1 && hidesForSinglePage == true {
-            hidden = true
+            isHidden = true
         }else{
-            hidden = false
+            isHidden = false
         }
     }
     
@@ -120,12 +120,8 @@ public class FYPageControl: UIControl {
                                        border: dotBorderWidth,
                                        width: dotWidth)
         dotLayer.animationType = animationType
-        dotLayer.animationDuration = animationDuration
         layer.addSublayer(dotLayer)
         
-//        if dots.count == 0 {
-//            dotLayer.startAnimation()
-//        }
         dotLayer.stopAnimation()
         dots.append(dotLayer)
         
@@ -144,9 +140,6 @@ public class FYPageControl: UIControl {
         }
     }
     
-//    public func animationType(with delegate:protocol<FYPageControlAnimationLayerDelegate>) -> Void{
-//        
-//    }
     
     public func sizeForNumberOfPages(pageCount: Int) -> CGSize {
         let margin = self.margin ?? 10
@@ -158,7 +151,7 @@ public class FYPageControl: UIControl {
     override public func layoutSubviews() {
         super.layoutSubviews()
         bounds.origin = CGPoint.zero
-        bounds.size = sizeForNumberOfPages(numberOfPages ?? 0)
+        bounds.size = sizeForNumberOfPages(pageCount: numberOfPages ?? 0)
     }
     
 }

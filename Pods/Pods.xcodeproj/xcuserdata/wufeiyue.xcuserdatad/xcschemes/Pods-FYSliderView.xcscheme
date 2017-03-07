@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4A95A84F2051129CCA3192731B38EB0F"
+               BlueprintIdentifier = "213A2864B7E21D903C8A32F96279C02B"
                BuildableName = "Pods_FYSliderView.framework"
                BlueprintName = "Pods-FYSliderView"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4A95A84F2051129CCA3192731B38EB0F"
+            BlueprintIdentifier = "213A2864B7E21D903C8A32F96279C02B"
             BuildableName = "Pods_FYSliderView.framework"
             BlueprintName = "Pods-FYSliderView"
             ReferencedContainer = "container:Pods.xcodeproj">

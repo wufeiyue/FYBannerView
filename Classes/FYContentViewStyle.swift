@@ -2,15 +2,13 @@
 //  FYContentViewStyle.swift
 //  FYSliderView
 //
-//  Created by 武飞跃 on 16/11/11.
-//  Copyright © 2016年 武飞跃. All rights reserved.
+//  Created by 武飞跃 on 16/10/3.
+//  Copyright © 2017年 武飞跃. All rights reserved.
 //
 
 import UIKit
 
-//MARK: - 遮罩背景相关设置
 public enum FYSliderCellMaskType {
-    
     //半透明
     case translucent(backgroundColor:UIColor)
     
@@ -20,14 +18,16 @@ public enum FYSliderCellMaskType {
      */
     case gradient(backgroundColors:[UIColor],offsetY:CGFloat)
 }
-//MARK: - 文字标题相关设置
-public enum FYTitleLabelStyle{
+
+public enum FYTitleLabelStyle {
     case fontSize(_:CGFloat)          //文字大小
     case textColor(_:UIColor)         //文字颜色
     case textInsets(_:UIEdgeInsets)   //文字内部边距
-    case labelHeight(_:CGFloat)       //标题label的高度
+    case labelHeight(_:CGFloat)            //标题label的高度
 }
 
-class FYContentViewStyle{
 
+class FYContentViewStyle {
+
+    
 }

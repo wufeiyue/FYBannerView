@@ -2,8 +2,8 @@
 //  FYPageControlStyle.swift
 //  FYSliderView
 //
-//  Created by 武飞跃 on 16/11/11.
-//  Copyright © 2016年 武飞跃. All rights reserved.
+//  Created by 武飞跃 on 16/10/3.
+//  Copyright © 2017年 武飞跃. All rights reserved.
 //
 
 import UIKit
@@ -54,7 +54,6 @@ public enum FYPageControlType {
 ///高级用法
 
 public enum FYPageControlAnimationType {
-    case countdown //倒计时
     case zoom //缩放(默认)
     case transition //过渡动画
 }
