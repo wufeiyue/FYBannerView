@@ -1,0 +1,6 @@
+framework module Pods_FYBannerView {
+  umbrella header "Pods-FYBannerView-umbrella.h"
+
+  export *
+  module * { export * }
+}
