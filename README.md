@@ -13,60 +13,60 @@
 
 目录说明
 ```
-├── FYSliderView  ＃核心库文件夹，如果不使用 CocoaPods 集成，请直接将这个文件夹拖拽到你的项目中
+├── FYBannerView  ＃核心库文件夹，如果不使用 CocoaPods 集成，请直接将这个文件夹拖拽到你的项目中
 	└── FYCollectionViewCell.swift 内容视图，包括遮罩和半透明样式图层，图片展示，文字标题展示
-	└── FYSliderView.swift 核心类
+	└── FYBannerView.swift 核心类
 	└── FYContentViewStyle.swift 内容视图的配置
 	└── FYPageControl.swift 自定义的PageControl类
 	└── FYPageControlStyle.swift  pageControl的样式配置
 	└── FYAnimatedLayer.swift 组成自定义pageControl元素的图层
-	└── FYSliderViewCustomizable.swift 参数配置
+	└── FYBannerViewCustomizable.swift 参数配置
 	└── FYDataModel.swift 数据模型
 	
 ```
-##使用FYSliderView
+##使用FYBannerView
 - - -
-###第一步：使用CocoaPods导入FYSliderView
+###第一步：使用CocoaPods导入FYBannerView
 在`Podfile`中进行如下导入：
 ```
-pod 'FYSliderView'
+pod 'FYBannerView'
 ```
 然后使用`cocoaPods`进行安装  
-###第二步：遵守FYSliderViewCustomizable协议，并在初始化方式中指定为自己
+###第二步：遵守FYBannerViewCustomizable协议，并在初始化方式中指定为自己
 ```
-class ViewController: UIViewController,FYSliderViewCustomizable {
-	var sliderView:FYSliderView!
+class ViewController: UIViewController,FYBannerViewCustomizable {
+	var bannerView:FYBannerView!
 	func setupSliderView(){
-		sliderView = FYSliderView(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 200),option:self)
+		bannerView = FYBannerView(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 200),option:self)
 		view.addSubview(sliderView)
 	}
 }
 ```
-###第三步：为sliderView指定数据源
+###第三步：为bannerView指定数据源
 ```
 //声明成员变量
-var dataSource:[FYImageObject]!
+var dataSource:[FYDataModel]!
 
 //请求数据，存到dataSource数组中
 …
 
 //指定为数据源
-sliderView.imageObjectGroup = dataSource
+bannerView.imageObjectGroup = dataSource
  
 ```
 ###第四步：指定代理，实现当点击图片会触发回调方法（可选的）
 ```
 //指定代理对象为self
-sliderView.delegate = self
+bannerView.delegate = self
 
-//遵守协议FYSliderViewDelegate，代理方法如下
-extension ViewController:FYSliderViewDelegate{
+//遵守协议FYBannerViewDelegate，代理方法如下
+extension ViewController:FYBannerViewDelegate{
     //轮播图滚动过程中会触发此方法，检索位置
-    func sliderView(didScrollToIndex index: Int) {
+    func bannerView(to index: Int) {
         print("滚到了\(index)")
     }
     //用户点击图片，检索位置
-    func sliderView(didSelectItemAtIndex index: Int) {
+    func bannerView(at index: Int) {
         print("点了\(index)")
     }
 }
@@ -95,13 +95,8 @@ extension ViewController:FYSliderViewDelegate{
     var hidesForSinglePage:Bool 
     
     //分页控件的类型
-    var controlType:FYPageControlType
+    var controlType:FYPageControlStyle
     
-    //文字背景遮罩样式
-    var maskType:FYSliderCellMaskType
-    
-    //文字样式
-    var titleStyle:FYTitleStyle
 
 ```
 
@@ -112,8 +107,8 @@ extension ViewController:FYSliderViewDelegate{
 - system  使用系统自带的pageControl 
 
 **效果如图**
-- ![custom](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner1.gif)
-- ![system](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner5.gif)
+- ![custom](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider1.gif)
+- ![system](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider5.gif)
 
 **使用方法：**  
 
@@ -155,8 +150,8 @@ y轴方向可表示为：
 - .bottom(20)到sliderView试图底部距离20个单位    <br/>    
 
 **效果如图**
-- ![右下角显示](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner3.gif)
-- ![水平垂直居中](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner4.gif) 
+- ![右下角显示](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider3.gif)
+- ![水平垂直居中](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider4.gif) 
  
 ####2.带文字效果的轮播图，介绍关于遮罩视图的不同选择样式
 - - -
@@ -165,8 +160,8 @@ y轴方向可表示为：
 - gradient 渐变色（默认） <br/>    
 
 **效果如图**
-- ![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner0.gif)
-- ![渐变背景色](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/banner2.gif)
+- ![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider0.gif)
+- ![渐变背景色](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider2.gif)
 
 **使用方法：**  
 1、设置成为渐变色的遮罩样式
