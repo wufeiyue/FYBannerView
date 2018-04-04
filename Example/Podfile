@@ -1,6 +1,7 @@
 use_frameworks!
 
 platform :ios, '8.0'
+
 target 'FYBannerView_Example' do
   
   pod 'SnapKit'

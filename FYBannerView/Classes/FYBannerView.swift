@@ -53,7 +53,6 @@ open class FYBannerView: BaseBannerView {
         collectionView.setScrollDirection(option.scrollDirection)
         
         pageControl.style = option.controlStyle
-        pageControl.hidesForSinglePage = option.isHidesForSinglePage
         setPageControlConstraints()
     }
     

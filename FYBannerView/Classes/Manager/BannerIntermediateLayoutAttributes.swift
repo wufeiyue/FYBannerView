@@ -15,7 +15,7 @@ struct BannerIntermediateLayoutAttributes {
     var itemHeight: CGFloat = 0
     
     lazy var pictureFrame: CGRect = {
-        return CGRect(x: 0, y: 0, width: itemWidth, height: itemHeight)
+        return CGRect(x: 0, y: 0, width: self.itemWidth, height: self.itemHeight)
     }()
     
     //标题的外边距

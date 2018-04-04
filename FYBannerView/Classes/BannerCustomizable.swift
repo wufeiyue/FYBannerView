@@ -24,9 +24,6 @@ public protocol BannerCustomizable: class {
     /// 滚动方向   默认水平方向
     var scrollDirection: BannerViewScrollDirection { get }
     
-    /// 只有一个元素时是否隐藏 pageControl 默认隐藏
-    var isHidesForSinglePage: Bool { get }
-    
     /// 控制柄的样式  默认显示自定义
     var controlStyle: BannerPageControlStyle { get }
 }
@@ -51,10 +48,6 @@ public extension BannerCustomizable {
     
     var scrollDirection: BannerViewScrollDirection {
         return .horizontal
-    }
-    
-    var isHidesForSinglePage: Bool {
-        return true
     }
     
     var controlStyle: BannerPageControlStyle {

@@ -2,8 +2,8 @@
   "name": "FYBannerView",
   "version": "1.2.0",
   "summary": "A short description of FYBannerView.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/eppeo/FYBannerView",
+  "description": "  使用CollectionView制作的轮播图, 已更新到swift4.0",
+  "homepage": "https://github.com/wufeiyue/FYBannerView",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "eppeo": "ieppeo@163.com"
   },
   "source": {
-    "git": "https://github.com/eppeo/FYBannerView.git",
+    "git": "https://github.com/wufeiyue/FYBannerView.git",
     "tag": "1.2.0"
   },
   "platforms": {

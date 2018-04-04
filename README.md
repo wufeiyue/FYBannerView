@@ -104,10 +104,7 @@ extension CustomView: BannerViewDelegate {
     
     //滚动方向
     var scrollDirection: BannerViewScrollDirection  
-    
-    //只有一个元素时就隐藏pageControl
-    var isHidesForSinglePage: Bool 
-    
+   
     //分页控件的类型
     var controlType: BannerPageControlStyle
     

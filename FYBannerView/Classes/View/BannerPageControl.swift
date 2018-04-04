@@ -7,18 +7,18 @@
 
 import Foundation
 
-open class BannerPageControl: UIView {
+public class BannerPageControl: UIView {
     
     public var borderColor: UIColor = UIColor.white.withAlphaComponent(0.6)
     public var normalColor: UIColor = UIColor.white.withAlphaComponent(0.6)
     public var selectorColor: UIColor = UIColor.white
     
+    public var isHidesForSinglePage: Bool = true
+
     /** pageControl的样式*/
-    var style: BannerPageControlStyle!
+    internal var style: BannerPageControlStyle!
     
-    open var hidesForSinglePage: Bool = true
-    
-    open var numberOfPages: Int = 0 {
+    internal var numberOfPages: Int = 0 {
         didSet {
             updateLayer()
             invalidateIntrinsicContentSize()
@@ -31,7 +31,7 @@ open class BannerPageControl: UIView {
         }
     }
     
-    open var currentPage:Int = 0 {
+    internal var currentPage:Int = 0 {
         willSet{
             if newValue == currentPage { return }
             changeActivity(index: newValue, isActive: true)
@@ -50,7 +50,7 @@ open class BannerPageControl: UIView {
             
             if dots.count == 1 {
                 
-                if hidesForSinglePage {
+                if isHidesForSinglePage {
                     dots.first?.isHidden = true
                 }
                 else{
@@ -99,12 +99,9 @@ open class BannerPageControl: UIView {
         return dot
     }
     
-    open override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         return style.calcDotSize(num: numberOfPages)
     }
-}
-
-extension BannerPageControl {
     
     /// 移除多余layer
     ///

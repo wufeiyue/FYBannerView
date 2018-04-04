@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6896546E32C00C1E186C3421D1A8442D'
+               BlueprintIdentifier = '34A849B7AD86A48D7CFF54E5FB278AF6'
                BlueprintName = 'FYBannerView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'FYBannerView.framework'>
