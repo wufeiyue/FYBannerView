@@ -1,4 +1,4 @@
-使用UICollectionView实现的swift轮播图FYSliderView
+使用UICollectionView实现的swift轮播图FYBannerView
 ===
 
 - 带有动画效果的pageControl，可自定义pageControl元素之间的间距/大小/位置
@@ -7,11 +7,7 @@
 - 文字轮播
 - 动态改变数据源，可以实时更新轮播图显示内容
 
-##项目结构
-- - -
-![](https://raw.githubusercontent.com/wufeiyue/FYBannerView/master/Resources/项目结构图.png)  
-
-目录说明
+### 项目结构
 ```
 ├── FYBannerView  ＃核心库文件夹，如果不使用 CocoaPods 集成，请直接将这个文件夹拖拽到你的项目中
 	└── BannerCustomizable 内容视图，包括遮罩和半透明样式图层，图片展示，文字标题展示
@@ -42,9 +38,9 @@
 	└──────RingDotLayer
 	
 ```
-##使用FYBannerView
+### 使用FYBannerView
 - - -
-###第一步：使用CocoaPods导入FYBannerView
+#### 第一步：使用CocoaPods导入FYBannerView
 在`Podfile`中进行如下导入：
 ```
 pod 'FYBannerView'
@@ -61,7 +57,7 @@ class CustomView,BannerCustomizable {
 	}
 }
 ```
-###第三步：为bannerView指定数据源
+#### 第三步：为bannerView指定数据源
 ```
 //声明成员变量
 var dataSource: [BannerType]!
@@ -73,7 +69,7 @@ var dataSource: [BannerType]!
 bannerView.dataList = dataSource
  
 ```
-###第四步：指定代理，实现当点击图片会触发回调方法（可选的）
+#### 第四步：指定代理，实现当点击图片会触发回调方法（可选的）
 ```
 //指定代理对象为self
 bannerView.delegate = self
@@ -92,7 +88,7 @@ extension CustomView: BannerViewDelegate {
     }
 }
 ```
-##参数说明
+### 参数说明
 ```
 	//默认背景图
     var placeholderImage:UIImage 
@@ -118,7 +114,7 @@ extension CustomView: BannerViewDelegate {
 
 ```
 
-####1.pageControl相关
+#### 1.pageControl相关
 - - -
 其中分页控件的类型有：
 - custom 自定义有动画效果的pageControl(默认)
@@ -171,7 +167,7 @@ y轴方向可表示为：
 - ![右下角显示](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider3.gif)
 - ![水平垂直居中](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider4.gif) 
  
-####2.带文字效果的轮播图，介绍关于遮罩视图的不同选择样式
+#### 2.带文字效果的轮播图，介绍关于遮罩视图的不同选择样式
 - - -
 其中遮罩试图的类型有：
 - translucent 半透明

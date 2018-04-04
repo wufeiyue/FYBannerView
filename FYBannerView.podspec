@@ -12,15 +12,13 @@ Pod::Spec.new do |s|
   s.summary          = 'A short description of FYBannerView.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+    使用CollectionView制作的轮播图, 已更新到swift4.0
                        DESC
 
-  s.homepage         = 'https://github.com/eppeo/FYBannerView'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/wufeiyue/FYBannerView'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'eppeo' => 'ieppeo@163.com' }
-  s.source           = { :git => 'https://github.com/eppeo/FYBannerView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/wufeiyue/FYBannerView.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
