@@ -1,107 +1,36 @@
 #
-#  Be sure to run `pod spec lint FYSliderView.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
+# Be sure to run `pod lib lint FYBannerView.podspec' to ensure this is a
+# valid spec before submitting.
 #
-#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
+# Any lines starting with a # are optional, but their use is encouraged
+# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 
 Pod::Spec.new do |s|
+  s.name             = 'FYBannerView'
+  s.version          = '1.2.0'
+  s.summary          = 'A short description of FYBannerView.'
 
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
+  s.description      = <<-DESC
+TODO: Add long description of the pod here.
+                       DESC
 
-  s.name         = "FYBannerView"
-  s.version      = "1.0.1"
-  s.summary      = "使用UICollectionView实现的swift轮播图FYBannerView"
+  s.homepage         = 'https://github.com/eppeo/FYBannerView'
+  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.author           = { 'eppeo' => 'ieppeo@163.com' }
+  s.source           = { :git => 'https://github.com/eppeo/FYBannerView.git', :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = <<-DESC
-带有动画效果的pageControl，可自定义pageControl元素之间的间距/大小/位置
-可自定义文字标题的字体大小/颜色/内边距
-有两种风格的文字标题遮罩背景（渐变色背景/半透明背景）
-                   DESC
+  s.ios.deployment_target = '8.0'
 
-  s.homepage     = "http://www.wufeiyue.com"
-  # s.screenshots  = "raw.githubusercontent.com/eppeo/FYBannerView/master/Resources/banner1.gif", "raw.githubusercontent.com/eppeo/FYBannerView/master/Resources/banner0.gif"
+  s.source_files = 'FYBannerView/Classes/**/*'
+  
+  # s.resource_bundles = {
+  #   'FYBannerView' => ['FYBannerView/Assets/*.png']
+  # }
 
-
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Licensing your code is important. See http://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-  #
-
-  #s.license      = "MIT (example)"
-  s.license      = { :type => "MIT", :file => "LICENSE.md" }
-
-  s.author             = { "Angelo" => "ieppeo@163.com" }
-  # Or just: s.author    = "Angelo"
-  # s.authors            = { "Angelo" => "ieppeo@163.com" }
-  # s.social_media_url   = "http://wufeiyue.com"
-
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If this Pod runs only on iOS or OS X, then specify the platform and
-  #  the deployment target. You can optionally include the target after the platform.
-  #
-
-  s.platform     = :ios
-  s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/eppeo/FYBannerView.git", :tag => "1.1.1" }
-
-
-  s.source_files  = "FYBannerView", "FYBannerView/Class/*"
-  #s.exclude_files = "FYBannerView/Class/Exclude"
-
-  # s.public_header_files = "Classes/**/*.h"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
-
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
-
-  # s.requires_arc = true
-
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-   s.dependency "Kingfisher"
-
+  # s.public_header_files = 'Pod/Classes/**/*.h'
+  # s.frameworks = 'UIKit', 'MapKit'
+  s.dependency 'Kingfisher'
 end

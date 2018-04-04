@@ -1,0 +1,22 @@
+PODS:
+  - FYBannerView (1.2.0):
+    - Kingfisher
+  - Kingfisher (4.6.4)
+  - SnapKit (4.0.0)
+
+DEPENDENCIES:
+  - FYBannerView (from `../`)
+  - SnapKit
+
+EXTERNAL SOURCES:
+  FYBannerView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FYBannerView: b349245e06b4d1af484b271694e030dc58df81b2
+  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+
+PODFILE CHECKSUM: 0f548d6edbb739aa62e71d503d2096c6fb311b03
+
+COCOAPODS: 1.4.0

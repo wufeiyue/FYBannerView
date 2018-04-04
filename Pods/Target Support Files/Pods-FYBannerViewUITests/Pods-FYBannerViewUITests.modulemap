@@ -1,6 +1,0 @@
-framework module Pods_FYBannerViewUITests {
-  umbrella header "Pods-FYBannerViewUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

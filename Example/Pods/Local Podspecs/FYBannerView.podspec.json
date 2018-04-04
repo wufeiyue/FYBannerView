@@ -1,0 +1,27 @@
+{
+  "name": "FYBannerView",
+  "version": "1.2.0",
+  "summary": "A short description of FYBannerView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/eppeo/FYBannerView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "eppeo": "ieppeo@163.com"
+  },
+  "source": {
+    "git": "https://github.com/eppeo/FYBannerView.git",
+    "tag": "1.2.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "FYBannerView/Classes/**/*",
+  "dependencies": {
+    "Kingfisher": [
+
+    ]
+  }
+}

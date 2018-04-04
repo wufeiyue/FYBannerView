@@ -9,19 +9,37 @@
 
 ##项目结构
 - - -
-![](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/项目结构图.png)  
+![](https://raw.githubusercontent.com/wufeiyue/FYBannerView/master/Resources/项目结构图.png)  
 
 目录说明
 ```
 ├── FYBannerView  ＃核心库文件夹，如果不使用 CocoaPods 集成，请直接将这个文件夹拖拽到你的项目中
-	└── FYCollectionViewCell.swift 内容视图，包括遮罩和半透明样式图层，图片展示，文字标题展示
-	└── FYBannerView.swift 核心类
-	└── FYContentViewStyle.swift 内容视图的配置
-	└── FYPageControl.swift 自定义的PageControl类
-	└── FYPageControlStyle.swift  pageControl的样式配置
-	└── FYAnimatedLayer.swift 组成自定义pageControl元素的图层
-	└── FYBannerViewCustomizable.swift 参数配置
-	└── FYDataModel.swift 数据模型
+	└── BannerCustomizable 内容视图，包括遮罩和半透明样式图层，图片展示，文字标题展示
+	└── BannerType 核心类
+	└── BannerViewDelegate 内容视图的配置
+	└── FYBannerView 自定义的PageControl类
+	└── Cell
+	└──────BannerCollectionCell
+	└──────BannerImageCell
+	└── Manager
+	└──────BannerCollectionViewLayoutAttributes
+	└──────BannerIntermediateLayoutAttributes
+	└──────BannerViewLayout
+	└──────BaseBannerView+FlowLayout
+	└──────ControlStyle
+	└──────FYBannerView+ScrollView
+	└──────TimerDelegate
+	└── Protocol
+	└──────BannerControlDelegate
+	└──────BannerDataSource
+	└──────BannerDisplayDelegate
+	└──────BannerLayoutDelegate
+	└──────DotLayerDelegate
+	└── View
+	└──────BannerCollectionView
+	└──────BannerPageControl
+	└──────BaseBannerView
+	└──────RingDotLayer
 	
 ```
 ##使用FYBannerView
@@ -32,26 +50,27 @@
 pod 'FYBannerView'
 ```
 然后使用`cocoaPods`进行安装  
-###第二步：遵守FYBannerViewCustomizable协议，并在初始化方式中指定为自己
+###第二步：遵守BannerCustomizable协议，并在初始化方式中指定为自己
 ```
-class ViewController: UIViewController,FYBannerViewCustomizable {
+class CustomView,BannerCustomizable {
 	var bannerView:FYBannerView!
-	func setupSliderView(){
-		bannerView = FYBannerView(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 200),option:self)
-		view.addSubview(sliderView)
+	func setupBannerView(){
+		let rect = CGRect(x: 0, y: 0, width: 200, height: 200)
+		bannerView = FYBannerView(frame: rect, option: self)
+		addSubview(sliderView)
 	}
 }
 ```
 ###第三步：为bannerView指定数据源
 ```
 //声明成员变量
-var dataSource:[FYDataModel]!
+var dataSource: [BannerType]!
 
 //请求数据，存到dataSource数组中
 …
 
 //指定为数据源
-bannerView.imageObjectGroup = dataSource
+bannerView.dataList = dataSource
  
 ```
 ###第四步：指定代理，实现当点击图片会触发回调方法（可选的）
@@ -59,12 +78,14 @@ bannerView.imageObjectGroup = dataSource
 //指定代理对象为self
 bannerView.delegate = self
 
-//遵守协议FYBannerViewDelegate，代理方法如下
-extension ViewController:FYBannerViewDelegate{
+//遵守协议BannerViewDelegate，代理方法如下
+extension CustomView: BannerViewDelegate {
+    
     //轮播图滚动过程中会触发此方法，检索位置
     func bannerView(to index: Int) {
         print("滚到了\(index)")
     }
+    
     //用户点击图片，检索位置
     func bannerView(at index: Int) {
         print("点了\(index)")
@@ -86,16 +107,13 @@ extension ViewController:FYBannerViewDelegate{
     var scrollTimeInterval:NSTimeInterval 
     
     //滚动方向
-    var scrollDirection:UICollectionViewScrollDirection 
-    
-    //图片的填充方式
-    var imageContentMode:UIViewContentMode  
+    var scrollDirection: BannerViewScrollDirection  
     
     //只有一个元素时就隐藏pageControl
-    var hidesForSinglePage:Bool 
+    var isHidesForSinglePage: Bool 
     
     //分页控件的类型
-    var controlType:FYPageControlStyle
+    var controlType: BannerPageControlStyle
     
 
 ```
@@ -107,12 +125,12 @@ extension ViewController:FYBannerViewDelegate{
 - system  使用系统自带的pageControl 
 
 **效果如图**
-- ![custom](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider1.gif)
-- ![system](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider5.gif)
+- ![custom](https://raw.githubusercontent.com/wufeiyue/FYBannerView/master/Resources/Slider1.gif)
+- ![system](https://raw.githubusercontent.com/wufeiyue/FYBannerView/master/Resources/Slider5.gif)
 
 **使用方法：**  
 
-1.在ViewController类中,只需重写controlType属性，将返回值改为.system并按照参数要求补齐完整即可切换成系统样式
+1.在CustomView类中,只需重写controlType属性，将返回值改为.system并按照参数要求补齐完整即可切换成系统样式
 ```
 var controlType:FYPageControlType{
     return .system(currentColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
@@ -160,8 +178,8 @@ y轴方向可表示为：
 - gradient 渐变色（默认） <br/>    
 
 **效果如图**
-- ![半透明](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider0.gif)
-- ![渐变背景色](https://raw.githubusercontent.com/eppeo/FYSliderView/master/Resources/Slider2.gif)
+- ![半透明](https://raw.githubusercontent.com/wufeiyue/FYBannerView/master/Resources/Slider0.gif)
+- ![渐变背景色](https://raw.githubusercontent.com/wufeiyue/FYBannerView/master/Resources/Slider2.gif)
 
 **使用方法：**  
 1、设置成为渐变色的遮罩样式
@@ -195,7 +213,9 @@ var titleStyle:FYTitleStyle{
 ```
 
 **版本更新：**
-- 1.0.8 
+- 1.2.0 支持swift4.0, 重构UICollectionView
+- 1.1.0 支持swift3.0, 重构PageControl
+- 1.0.8 支持Kingfisher异步缓存库
 - 1.0.7 修复后台实时添加/删除轮播图数据，APP刷新数据源没有即时改变轮播图展示
 - 1.0.6 增加pageControlWidth属性，配合titleStyle属性设置，避免文字视图将pageControl覆盖掉
-> 有任何疑问，欢迎加入QQ群:428463531讨论及分享
+> 有任何疑问，欢迎留言
