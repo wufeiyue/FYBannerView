@@ -9,7 +9,8 @@ import UIKit
 
 open class BaseBannerView: UIView {
     
-    var collectionView = BannerCollectionView()
+    open var collectionView = BannerCollectionView()
+    open var pageControl: BannerPageControl = BannerPageControl()
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +25,7 @@ open class BaseBannerView: UIView {
     }
     
     open func setupSubviews() {
+        addSubview(pageControl)
         addSubview(collectionView)
     }
     
@@ -33,11 +35,11 @@ open class BaseBannerView: UIView {
         
         let collectionViewMapping: [String : Any] = ["collectionView": collectionView]
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[collectionView]-0-|",
-                                                      options: NSLayoutFormatOptions(rawValue: 0),
+                                                      options: NSLayoutConstraint.FormatOptions(rawValue: 0),
                                                       metrics: nil,
                                                       views: collectionViewMapping))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[collectionView]-0-|",
-                                                      options: NSLayoutFormatOptions(rawValue: 0),
+                                                      options: NSLayoutConstraint.FormatOptions(rawValue: 0),
                                                       metrics: nil,
                                                       views: collectionViewMapping))
         

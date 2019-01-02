@@ -1,22 +1,23 @@
 PODS:
-  - FYBannerView (1.2.0):
+  - FYBannerView (2.2.0):
     - Kingfisher
-  - Kingfisher (4.6.4)
-  - SnapKit (4.0.0)
+  - Kingfisher (4.10.1)
 
 DEPENDENCIES:
   - FYBannerView (from `../`)
-  - SnapKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Kingfisher
 
 EXTERNAL SOURCES:
   FYBannerView:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  FYBannerView: 16a81dd3ecc791cdacaccb001e0bd8e3e829bd07
-  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  FYBannerView: 02645feb509023621d6cad32ef782533db8d3712
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
 
-PODFILE CHECKSUM: 0f548d6edbb739aa62e71d503d2096c6fb311b03
+PODFILE CHECKSUM: 28336dee4c4d5cf1912d5c2fee1729becc122371
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.0.beta.1

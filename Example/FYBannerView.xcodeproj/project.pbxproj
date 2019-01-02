@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		04C3716176B010A7FC4CB622 /* Pods_FYBannerView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CCD660ADA1B9B54A71E110 /* Pods_FYBannerView_Example.framework */; };
+		1746A14020805B8F0039E53D /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746A13F20805B8F0039E53D /* CarouselViewController.swift */; };
+		17B19E6F214B93D90030A60E /* CarouselNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B19E6E214B93D90030A60E /* CarouselNewViewController.swift */; };
 		17E0B82C2015C091005E55D9 /* TableHeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B82B2015C091005E55D9 /* TableHeadViewController.swift */; };
 		17E0B82E2015C6E5005E55D9 /* TableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B82D2015C6E5005E55D9 /* TableCellViewController.swift */; };
 		17E0B8302015CC88005E55D9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B82F2015CC88005E55D9 /* TabBarViewController.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		04AB8DB667ABF60D6CE142EE /* Pods_FYBannerView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYBannerView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1746A13F20805B8F0039E53D /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
+		17B19E6E214B93D90030A60E /* CarouselNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselNewViewController.swift; sourceTree = "<group>"; };
 		17E0B82B2015C091005E55D9 /* TableHeadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeadViewController.swift; sourceTree = "<group>"; };
 		17E0B82D2015C6E5005E55D9 /* TableCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellViewController.swift; sourceTree = "<group>"; };
 		17E0B82F2015CC88005E55D9 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				17E0B82B2015C091005E55D9 /* TableHeadViewController.swift */,
 				17E0B82D2015C6E5005E55D9 /* TableCellViewController.swift */,
 				17E0B82F2015CC88005E55D9 /* TabBarViewController.swift */,
+				1746A13F20805B8F0039E53D /* CarouselViewController.swift */,
+				17B19E6E214B93D90030A60E /* CarouselNewViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -158,7 +164,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				712746A0F9859AE43DB4D4A7 /* [CP] Embed Pods Frameworks */,
-				C0680D6079B608949170FD5F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,35 +247,18 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FYBannerView_Example/Pods-FYBannerView_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FYBannerView_Example/Pods-FYBannerView_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FYBannerView/FYBannerView.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FYBannerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FYBannerView_Example/Pods-FYBannerView_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C0680D6079B608949170FD5F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FYBannerView_Example/Pods-FYBannerView_Example-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FYBannerView_Example/Pods-FYBannerView_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -284,7 +272,9 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				17E0B8302015CC88005E55D9 /* TabBarViewController.swift in Sources */,
+				1746A14020805B8F0039E53D /* CarouselViewController.swift in Sources */,
 				17E0B82E2015C6E5005E55D9 /* TableCellViewController.swift in Sources */,
+				17B19E6F214B93D90030A60E /* CarouselNewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,6 @@
 
 import UIKit
 import FYBannerView
-import SnapKit
 
 class TableCellViewController: UIViewController {
 
@@ -64,14 +63,13 @@ class TableCell: UITableViewCell {
     var bannerView: FYBannerView!
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         bannerView = FYBannerView(frame: .zero, option: self)
         contentView.addSubview(bannerView)
-        
-        // Use SnapKit or AutoLayout
-        bannerView.snp.makeConstraints { (maker) in
-            maker.edges.equalToSuperview()
-        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        bannerView.frame = bounds
     }
     
     required init?(coder aDecoder: NSCoder) { return nil }

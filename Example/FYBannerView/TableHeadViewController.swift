@@ -18,12 +18,10 @@ struct MockModel: BannerType {
     init(origin: [String: String]) {
         
         let urlStr = origin["banner_picture_url"]!
-        let title = origin["banner_title"]!
+//        let title = origin["banner_title"]!
         
         bannerId = "\(urlStr.hashValue)"
-        data = .photo(urlStr)
-        
-        print("title:\(title)")
+        data = .photo(url: URL(string: urlStr), placeholder: UIImage(named: ""))
     }
 }
 

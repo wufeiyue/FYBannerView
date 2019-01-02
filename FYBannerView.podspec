@@ -8,11 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FYBannerView'
-  s.version          = '1.2.0'
+  s.version          = '2.2.0'
   s.summary          = '使用UICollectionView实现的swift轮播图FYBannerView, 留给开发者扩展很强'
 
   s.description      = <<-DESC
-    使用CollectionView制作的轮播图, 已更新到swift4.0
+    使用CollectionView制作的轮播图, 已更新到swift4.2.1
   1. 带有动画效果的pageControl，可自定义pageControl元素之间的间距/大小/位置
   2. 可自定义文字标题的字体大小/颜色/内边距
   3. 有两种风格的文字标题遮罩背景（渐变色背景/半透明背景）
@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
+  s.swift_version = '4.2'
   s.source_files = 'FYBannerView/Classes/**/*'
   
   s.dependency 'Kingfisher'

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '34A849B7AD86A48D7CFF54E5FB278AF6'
-               BlueprintName = 'FYBannerView'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'FYBannerView.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "94C7EFAF8846FEA0A827DB25E0329719"
+               BlueprintName = "FYBannerView"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "FYBannerView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

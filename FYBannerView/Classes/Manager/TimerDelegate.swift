@@ -17,7 +17,7 @@ extension TimerDelegate {
     public func setupTimer(timeInterval: TimeInterval) {
         if timer == nil {
             let timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(timerElamsed), userInfo: nil, repeats: true)
-            RunLoop.main.add(timer, forMode: .commonModes)
+            RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
             self.timer = timer
         }
     }

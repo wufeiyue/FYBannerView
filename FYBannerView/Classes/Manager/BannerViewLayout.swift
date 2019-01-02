@@ -8,7 +8,7 @@
 import UIKit
 
 public typealias BannerID = String
-public typealias BannerViewScrollDirection = UICollectionViewScrollDirection
+public typealias BannerViewScrollDirection = UICollectionView.ScrollDirection
 
 open class BannerViewLayout: UICollectionViewFlowLayout {
     

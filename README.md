@@ -1,3 +1,12 @@
+
+# FYBannerView
+
+[![CI Status](http://img.shields.io/travis/eppeo/BMChat.svg?style=flat)](https://travis-ci.org/wufeiyue/FYBannerView)
+[![Version](https://img.shields.io/cocoapods/v/BMChat.svg?style=flat)](http://cocoapods.org/pods/FYBannerView)
+[![License](https://img.shields.io/cocoapods/l/BMChat.svg?style=flat)](http://cocoapods.org/pods/FYBannerView)
+[![Platform](https://img.shields.io/cocoapods/p/BMChat.svg?style=flat)](http://cocoapods.org/pods/FYBannerView)
+
+
 使用UICollectionView实现的swift轮播图FYBannerView
 ===
 
@@ -38,7 +47,12 @@
 	└──────RingDotLayer
 	
 ```
-### 使用FYBannerView
+### 了解FYBannerView的使用
+通过cocoaPods集成,在podfile中完成配置:
+```ruby
+pod 'BMKP_Chat'
+```
+
 - - -
 #### 第一步：使用CocoaPods导入FYBannerView
 在`Podfile`中进行如下导入：

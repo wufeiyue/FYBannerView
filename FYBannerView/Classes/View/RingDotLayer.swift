@@ -41,9 +41,9 @@ public class RingDotLayer: DotLayer {
         zoom.animations = [fill_color]
         zoom.repeatCount = 1
         zoom.isRemovedOnCompletion = false
-        zoom.fillMode = kCAFillModeForwards
+        zoom.fillMode = .forwards
         zoom.duration = 0.2
-        zoom.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+        zoom.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         add(zoom, forKey: "transform-start")
         
     }
@@ -62,9 +62,9 @@ public class RingDotLayer: DotLayer {
         zoom.animations = [fill_color,stroke_color]
         zoom.repeatCount = 1
         zoom.isRemovedOnCompletion = false
-        zoom.fillMode = kCAFillModeForwards
+        zoom.fillMode = .forwards
         zoom.duration = 0.3
-        zoom.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+        zoom.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         add(zoom, forKey: "transform-stop")
         
     }

@@ -41,8 +41,6 @@ open class FYBannerView: BaseBannerView {
     internal var timer: Timer?
     internal weak var option: BannerCustomizable!
     
-    open var pageControl: BannerPageControl = BannerPageControl()
-    
     public init(frame: CGRect, option: BannerCustomizable) {
         super.init(frame: frame)
         self.option = option
@@ -63,12 +61,6 @@ open class FYBannerView: BaseBannerView {
         }
     }
     
-    open override func setupSubviews() {
-        super.setupSubviews()
-        addSubview(pageControl)
-    }
-    
-    
     func timerElamsed() {
         let currentIndex = collectionView.currentIndex
 //        print("currentIndex-timerElamsed:\(currentIndex)")
@@ -83,6 +75,7 @@ open class FYBannerView: BaseBannerView {
     }
     
     func setPageControlConstraints() {
+        
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         
         switch option.controlStyle.position {

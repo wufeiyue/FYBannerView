@@ -20,7 +20,7 @@ public enum BannerData {
     case text(String)
     
     //图片
-    case photo(String)
+    case photo(url: URL?, placeholder: UIImage?)
     
     //视频
     case video(file: URL, thumbnail: UIImage)

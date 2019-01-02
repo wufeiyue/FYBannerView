@@ -8,23 +8,6 @@
 import Foundation
 import Kingfisher
 
-//func color() -> UIColor {
-//    switch arc4random() % 5 {
-//    case 0:
-//        return .black
-//    case 1:
-//        return .green
-//    case 2:
-//        return .blue
-//    case 3:
-//        return .yellow
-//    case 4:
-//        return .gray
-//    default:
-//        return .red
-//    }
-//}
-
 final class BannerImageCell: BannerCollectionCell {
     
     let pictureView = UIImageView()
@@ -37,7 +20,7 @@ final class BannerImageCell: BannerCollectionCell {
 //        contentView.clipsToBounds = true
     }
     
-    open override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+    public override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
         if let attr = layoutAttributes as? BannerCollectionViewLayoutAttributes {
@@ -53,9 +36,9 @@ final class BannerImageCell: BannerCollectionCell {
         
 //        guard let displayDelegate = bannerCollectionView.bannerDisplayDelegate else { fatalError("bannerDisplayDelegate没有实现") }
 
-        if case .photo(let urlStr) = data.data, let url = URL(string: urlStr) {
-            pictureView.kf.setImage(with: url)
-        }
+//        if case .photo(let url, let placeholder) = data.data {
+//            pictureView.kf.setImage(with: url, placeholder: placeholder, options: <#T##KingfisherOptionsInfo?#>, progressBlock: <#T##DownloadProgressBlock?##DownloadProgressBlock?##(Int64, Int64) -> Void#>, completionHandler: <#T##CompletionHandler?##CompletionHandler?##(Image?, NSError?, CacheType, URL?) -> Void#>)
+//        }
         
         //FIXME: - 设置contentMode会导致图片尺寸改变, 不能撑满父视图, 还需要搭配contentView.clipsToBounds使用, 暂时注释
 //        let contentMode = displayDelegate.imageContentMode(for: data, at: indexPath, in: bannerCollectionView)

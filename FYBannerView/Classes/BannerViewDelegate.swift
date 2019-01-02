@@ -20,3 +20,8 @@ public protocol BannerViewDelegate: class {
     /// - Parameter index: 当前索引
     func bannerView(_ view: FYBannerView, to index:Int)
 }
+
+extension BannerViewDelegate {
+    public func bannerView(_ view: FYBannerView, at index:Int) {}
+    public func bannerView(_ view: FYBannerView, to index:Int) {}
+}
