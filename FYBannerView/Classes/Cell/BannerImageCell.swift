@@ -36,9 +36,9 @@ final class BannerImageCell: BannerCollectionCell {
         
 //        guard let displayDelegate = bannerCollectionView.bannerDisplayDelegate else { fatalError("bannerDisplayDelegate没有实现") }
 
-//        if case .photo(let url, let placeholder) = data.data {
-//            pictureView.kf.setImage(with: url, placeholder: placeholder, options: <#T##KingfisherOptionsInfo?#>, progressBlock: <#T##DownloadProgressBlock?##DownloadProgressBlock?##(Int64, Int64) -> Void#>, completionHandler: <#T##CompletionHandler?##CompletionHandler?##(Image?, NSError?, CacheType, URL?) -> Void#>)
-//        }
+        if case let .photo(url, image) = data.data{
+            pictureView.kf.setImage(with: url, placeholder: image)
+        }
         
         //FIXME: - 设置contentMode会导致图片尺寸改变, 不能撑满父视图, 还需要搭配contentView.clipsToBounds使用, 暂时注释
 //        let contentMode = displayDelegate.imageContentMode(for: data, at: indexPath, in: bannerCollectionView)

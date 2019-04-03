@@ -54,7 +54,7 @@ class CarouselViewController: UIViewController {
 
     func getData(completion: @escaping (_ data: [[String: String]]) -> Void) {
         
-        guard let url = URL(string: "http://7xt77b.com1.z0.glb.clouddn.com/fysliderview_notext.json") else { return }
+        guard let url = URL(string: "http://ppbntwsxr.bkt.gdipper.com/banner.json") else { return }
         let request = URLRequest(url: url)
         let session = URLSession.shared.dataTask(with: request) { (data, response, error) in
             

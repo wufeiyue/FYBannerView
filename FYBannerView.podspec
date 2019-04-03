@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FYBannerView'
-  s.version          = '2.2.0'
+  s.version          = '2.2.1'
   s.summary          = '使用UICollectionView实现的swift轮播图FYBannerView, 留给开发者扩展很强'
 
   s.description      = <<-DESC
